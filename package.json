@@ -1,0 +1,29 @@
+{
+  "name": "offer-app",
+  "version": "1.0.0",
+  "description": "find the best offer for you",
+  "main": "index.js",
+  "scripts": {
+    "start": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MohannadBakkar/2017-2-thesis.git"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/MohannadBakkar/2017-2-thesis/issues"
+  },
+  "homepage": "https://github.com/MohannadBakkar/2017-2-thesis#readme",
+  "dependencies": {
+    "express": "^4.15.0",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.4.3",
+    "jwt-simple": "^0.5.0",
+    "morgan": "^1.1.1",
+    "q": "^1.4.1",
+    "request": "^2.36.0",
+    "sqlite3": "^3.1.8"
+  }
+}
