@@ -1,7 +1,7 @@
-var handlers=require('./handlers.js');
+var userController = require('../Database/User/UserController.js');
 module.exports = function (app, express) {
-	app.post('/api/users/signup', handlers.handleUsers.signup);
-app.post('/api/users/signin', handlers.handleUsers.signin);
+app.post('/api/users/signup', userController.signup);
+app.post('/api/users/signin', userController.signin);
 	
 }
 
