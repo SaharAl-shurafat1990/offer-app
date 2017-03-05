@@ -1,8 +1,8 @@
 angular.module('offers', [
-  'offers.auth',
+  'offers.auth','offers.services',
   'ngRoute'
 ])
-.config(function ($routeProvider, $httpProvider) {
+.config(function ($routeProvider) {
   $routeProvider
     .when('/signin', {
       templateUrl: 'app/account/signin.html',
