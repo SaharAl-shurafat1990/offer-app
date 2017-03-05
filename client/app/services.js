@@ -1,11 +1,6 @@
 angular.module('offers.services', [])
 
-.factory('Users', function ($http) {
-  return {
-
-    
-}});
-.factory('Auth', function ($http, $location, $window,$rootScope) {
+.factory('Auth', function ($http, $location, $window) {
   // Don't touch this Auth service!!!
   // it is responsible for authenticating our user
   // by exchanging the user's username and password
@@ -20,9 +15,9 @@ angular.module('offers.services', [])
       data: user
     })
     .then(function (resp) {
-      return resp.data;
+      return resp.data.token;
     });
-  };          
+  };
 
   var signup = function (user) {
     return $http({
@@ -31,7 +26,7 @@ angular.module('offers.services', [])
       data: user
     })
     .then(function (resp) {
-      return resp.data;
+      return resp.data.token;
     });
   };
 
@@ -41,11 +36,6 @@ angular.module('offers.services', [])
 
   var signout = function () {
     $window.localStorage.removeItem('com.offers');
-    $window.localStorage.removeItem('user.offers');
-    $rootScope.isLoggedIn = false;
-    $rootScope.isCooker = false;
-    $rootScope.UserName = undefined;
-    $rootScope.UserID = undefined;
     $location.path('/signin');
   };
 
@@ -56,4 +46,4 @@ angular.module('offers.services', [])
     isAuth: isAuth,
     signout: signout
   };
-})
+});
