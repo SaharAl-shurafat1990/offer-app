@@ -1,5 +1,6 @@
 angular.module('offers', [
   'offers.auth','offers.services',
+  'offers.authCom',
   'ngRoute'
 ])
 .config(function ($routeProvider) {
@@ -15,6 +16,14 @@ angular.module('offers', [
     .when('/signout', {
       templateUrl: 'app/account/signout.html',
       controller: 'AuthController'
+    })
+    .when('/signupCom', {
+      templateUrl: 'app/account/signupCom.html',
+      controller: 'comAuthController'
+    })
+    .when('/signinCom', {
+      templateUrl: 'app/account/signinCom.html',
+      controller: 'comAuthController'
     })
     
     .otherwise({redirectTo:'/'});

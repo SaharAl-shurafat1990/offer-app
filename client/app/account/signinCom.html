@@ -1,0 +1,20 @@
+<form name="signinForm" ng-submit='signin()'>
+		<div class="form-group">
+			<label for="user">Email:</label>
+			<input type="text" class="form-control" placeholder="your name" ng-model='company.email' required>
+		</div>
+		<div class="form-group">
+			<label for="pwd">Password:</label>
+			<input type="password" class="form-control" placeholder="your password" ng-model='company.password' required>
+			<br>
+		</div>
+		<input type="submit" class="btn btn-info" value="Login">
+	</form>
+	<br>
+	<div>
+		<h4><strong>Don't you have account?</strong></h4>
+		<br>
+		<a href="#/signupCom">
+			<input type="submit" class="btn btn-danger" value="Signup">
+		</a>
+	</div>
