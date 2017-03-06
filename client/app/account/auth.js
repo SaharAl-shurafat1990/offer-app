@@ -9,12 +9,14 @@ angular.module('offers.auth', [])
   $scope.signin = function () {
     var passFlag = $scope.user.password;
     var userFlag = $scope.user.username;
+    console.log( $scope.user)
     if(userFlag && passFlag){
       Auth.signin($scope.user)
       .then(function (data) {
         console.log(data)
         $window.localStorage.setItem('com.offers', data.token);
         $window.localStorage.setItem('user.offers', $scope.user.username);
+
         $location.path('/');
         
         

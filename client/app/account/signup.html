@@ -1,16 +1,8 @@
-<style>
-  .user {
-    font-size: 17px;
-  }
-  
-  }
-  .h4 {
-    color: #1E90FF;
-  }
-</style>
-
-
-  <form ng-submit="signup()">
+<div class="container">
+<div class="row" id="pwd-container">
+<div class="col-md-4"></div>
+    <div class="col-md-4">
+  <form ng-submit="signup()" role="login">
     
     <div class="form-group">
       <label for="user">User Name:</label>
@@ -23,11 +15,18 @@
       type="password" class="form-control" placeholder="your password" required>
     </div>
     
-  <input type="submit" class="btn btn-info" value="Submit">
+  <div class="form-group">
+                <button type="submit" class="btn btn-info">Sign Up</button>
+            </div>
+  <div class="wrapper">
+
+    <h4><strong>Do you have account already?</strong></h4>
+    <a href="#/signin">
+     <input type="submit" class="btn btn-danger" value="Signin">
+   </a>
+ </div>
 </form>
 
-<h4><strong>Do you have account already?</strong></h4>
-<a href="#/signin">
- <input type="submit" class="btn btn-danger" value="Signin">
-</a>
 </div>
+</div>
+</div

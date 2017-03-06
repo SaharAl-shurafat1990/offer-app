@@ -4,7 +4,7 @@
   "description": "find the best offer for you",
   "main": "index.js",
   "scripts": {
-    "start": ""
+    "start": "nodemon server/server.js"
   },
   "repository": {
     "type": "git",
