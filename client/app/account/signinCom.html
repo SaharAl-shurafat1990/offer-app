@@ -1,4 +1,4 @@
-<form name="signinForm" ng-submit='signin()'>
+<!-- <form name="signinForm" ng-submit='signin()'>
 		<div class="form-group">
 			<label for="user">Email:</label>
 			<input type="text" class="form-control" placeholder="your name" ng-model='company.email' required>
@@ -17,4 +17,31 @@
 		<a href="#/signupCom">
 			<input type="submit" class="btn btn-danger" value="Signup">
 		</a>
-	</div>
+	</div> -->
+	<div class="container">
+  <div class="row" id="pwd-container">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <section class="login-form">
+        <form ng-submit='signin()' role="login">
+          <img src="http://i.imgur.com/RcmcLv4.png" class="img-responsive" alt="" />
+          <input type="email" name="email" placeholder="Email" required class="form-control input-lg" ng-model='company.email' />
+          <input type="password" class="form-control input-lg" id="password" placeholder="Password" required="" ng-model='company.password'/>
+          <div class="pwstrength_viewport_progress"></div>
+          <button type="submit" name="go" class="btn btn-lg btn-primary btn-block">Sign in</button>
+          <div>
+          <h4><strong>Don't you have account?</strong></h4>
+          <br>
+            <a href="#/signupCom">Create account</a>
+          </div>
+        </form>
+        <div class="form-links">
+          <a href="#">www.website.com</a>
+        </div>
+      </section>  
+      </div>
+      
+      <div class="col-md-4">
+      	
+      </div>
+      
