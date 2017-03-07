@@ -4,7 +4,8 @@
   "description": "find the best offer for you",
   "main": "index.js",
   "scripts": {
-    "start": ""
+    "test": "mocha server/Database/Company/spec.js",
+    "start": "nodemon server/server.js"
   },
   "repository": {
     "type": "git",
@@ -25,5 +26,9 @@
     "morgan": "^1.1.1",
     "q": "^1.4.1",
     "request": "^2.36.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "supertest": "^3.0.0"
   }
 }
