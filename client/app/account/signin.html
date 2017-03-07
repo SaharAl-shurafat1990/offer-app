@@ -1,25 +1,54 @@
 <!-- Everything is clear here, this page is just for signing in. -->
-
-<div id='signin' class="container" ng-controller="AuthController">
-  <br><br><br>
-	<form name="signinForm" ng-submit='signin()'>
+<!-- <div class="container"> -->
+    <!-- <div class="row">
+        <div class="col-md-offset-5 col-md-3">
+            <div class="form-login">
+            <h4>Welcome back.</h4>
+            <form ng-submit='signin()' role="login">
+            <input type="text" id="userName" class="form-control input-sm chat-input" placeholder="username" ng-model='user.username' required />
+            </br>
+            <input type="text" id="userPassword" class="form-control input-sm chat-input" placeholder="password" ng-model='user.password' required />
+            </br>
+            </form>
+            <div class="wrapper">
+            <span class="group-btn">     
+                <a href="#" class="btn btn-primary btn-md">login <i class="fa fa-sign-in"></i></a>
+            </span>
+            </div>
+            </div>
+       
+        </div>
+    </div>
+</div> -->
+<div class="container">
+<div class="row" id="pwd-container">
+<div class="col-md-4"></div>
+    <div class="col-md-4">
+	<form  name="signinForm" ng-submit='signin()' role="login">
 		<div class="form-group">
 			<label for="user">User Name:</label>
 			<input type="text" class="form-control" placeholder="your name" ng-model='user.username' required>
 		</div>
+		<br>
 		<div class="form-group">
 			<label for="pwd">Password:</label>
 			<input type="password" class="form-control" placeholder="your password" ng-model='user.password' required>
 			<br>
 		</div>
-		<input type="submit" class="btn btn-info" value="Submit">
-	</form>
-	<br>
-	<div>
+		<br>
+		<div class="form-group">
+                <button type="submit" class="btn btn-info">Sign In</button>
+            </div>
+		<div class="wrapper">
 		<h4><strong>Don't you have account?</strong></h4>
 		<br>
 		<a href="#/signup">
 			<input type="submit" class="btn btn-danger" value="Signup">
 		</a>
 	</div>
-</div> 
+	</form>
+	
+	</div>
+	</div>
+	</div>
+	
