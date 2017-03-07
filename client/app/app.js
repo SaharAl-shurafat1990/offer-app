@@ -1,5 +1,6 @@
 angular.module('offers', [
-  'offers.auth','offers.services',
+  'offers.auth',
+  'offers.services',
   'offers.authCom',
   'ngRoute'
 ])
