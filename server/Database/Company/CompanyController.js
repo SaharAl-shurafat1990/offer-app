@@ -8,6 +8,15 @@ var findCompany = Q.nbind(Company.findOne, Company);
 var createCompany = Q.nbind(Company.create, Company);
 
 module.exports = {
+  getAll: function(req,res){
+    Company.find().exec(function (err,allCompanies) {
+      if (err) {
+        res.status(500).send(err);
+      }else{
+        res.json(allCompanies)
+      }
+    })
+  },
   signin: function (req, res, next) {
     console.log(req.body);
     var email = req.body.email;
@@ -23,7 +32,7 @@ module.exports = {
               if (foundCompany) {
                 var token = jwt.encode(company, 'secret');
                 console.log(company._id)
-                res.json({token: token,company:company});
+                res.json({token: token,company:company.email});
               } else {
                 return next(new Error('No company'));
               }
@@ -69,7 +78,7 @@ module.exports = {
       .then(function (company) {
         // create token to send back for auth
         var token = jwt.encode(company, 'secret');
-        res.json({token: token});
+        res.json({token: token,email: email});
       })
       .fail(function (error) {
         next(error);

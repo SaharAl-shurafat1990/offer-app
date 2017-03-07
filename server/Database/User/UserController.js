@@ -8,8 +8,17 @@ var findUser = Q.nbind(User.findOne, User);
 var createUser = Q.nbind(User.create, User);
 
 module.exports = {
+  getAll: function(req,res){
+    User.find().exec(function (err,allUsers) {
+      if (err) {
+        res.status(500).send(err);
+      }else{
+        res.json(allUsers)
+      }
+    })
+  },
   signin: function (req, res, next) {
-    var username = req.body.username;
+    var email = req.body.email;
     var password = req.body.password;
 
     findUser({username: username})
@@ -36,6 +45,7 @@ module.exports = {
 
   signup: function (req, res, next) {
     var username = req.body.username;
+    var email = req.body.email;
     var password = req.body.password;
     // console.log(req.body)
     // check to see if user already exists
@@ -48,7 +58,7 @@ module.exports = {
           return createUser({
             username: username,
             password: password
-            
+
           });
         }
       })
