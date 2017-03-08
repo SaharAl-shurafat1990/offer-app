@@ -1,0 +1,76 @@
+<div class="container">
+<div class="row" id="pwd-container">
+<div class="col-md-4"></div>
+    <div class="col-md-4">
+        <form ng-submit="signup()" role="login">
+
+            <div class="form-title-row">
+                <h1>Signup</h1>
+            </div>
+
+            <div class="form-group">
+                <label>
+                    <span >Company Owner</span>
+                    <input type="text" ng-model=" company.companyOwner">
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label>
+                    <span >Company Name</span>
+                    <input type="text" ng-model=" company.companyName">
+                </label>
+            </div>
+             <div class="form-group">
+                <label>
+                    <span >Phone Number</span>
+                    <input type="text" ng-model=" company.phoneNumber">
+                </label>
+            </div>
+            <div class="form-group">
+                <label>
+                    <span >Company Type</span>
+                    <input type="text" ng-model="company.companyType">
+                </label>
+            </div>
+             <div class="form-group">
+                <label>
+                    <span >Description</span>
+                    <input  type="text" ng-model="company.description">
+                </label>
+            </div>
+            <div class="form-group">
+                <label>
+                    <span > Company Email</span>
+                    <input type="email" ng-model="company.email">
+                </label>
+            </div>
+
+             <div class="form-group">
+                <label>
+                    <span > Company Location</span>
+                    <input type="text" >
+                </label>
+            </div>
+
+             <div class="form-group">
+                <label>
+                    <span >Password</span>
+                    <input type="Password"  ng-model=" company.password">
+                </label>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-info">Sign Up</button>
+            </div>
+            <div  class="wrapper">
+
+    <h4><strong>Do you have account already?</strong></h4>
+    <a href="#/signin">
+     <input type="submit" class="btn btn-danger" value="Signin">
+   </a>
+ </div>
+        </form>
+    </div>
+    </div>
+    </div>

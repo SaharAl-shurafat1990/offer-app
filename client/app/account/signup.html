@@ -1,29 +1,9 @@
-<style>
-  .user {
-    font-size: 17px;
-  }
-  
-  }
-  .h4 {
-    color: #1E90FF;
-  }
-</style>
-
-<div class="row" style="
-background: url('assets/header-bg.jpg');
-background-position: bottom;
-min-height: 250px;
-z-index: 2;
-padding-top: 100px;
-">
-
-<div id="signup" class="container" ng-controller="AuthController"  
-  <form ng-submit="signup()">
-    <div class="form-group">
-      <label for="user">Full Name:</label>
-      <input ng-model="user.fullname" 
-      type="text" class="form-control" placeholder="your first and last name" required>
-    </div>
+<div class="container">
+<div class="row" id="pwd-container">
+<div class="col-md-4"></div>
+    <div class="col-md-4">
+  <form ng-submit="signup()" role="login">
+    
     <div class="form-group">
       <label for="user">User Name:</label>
       <input ng-model="user.username" 
@@ -32,29 +12,21 @@ padding-top: 100px;
     <div class="form-group">
       <label for="pwd">Password:</label>
       <input ng-model="user.password" 
-      type="password" class="form-control" placeholder="your assword" required>
-    </div>
-    <div class="form-group">
-      <label for = "phone">Phone Number:</label>
-      <input ng-model="user.phone" 
-      type="text" class="form-control" placeholder="your number" required>
-    </div>
-    <div class="form-group">
-      <label for="user">Email address:</label>
-      <input ng-model="user.email" 
-      type="text" class="form-control" placeholder="your email" required>
-    </div>
-    <div class="form-group">
-      <label for="user">Address:</label>
-      <input ng-model="user.address" 
-      type="text" class="form-control" placeholder="your address" required>
+      type="password" class="form-control" placeholder="your password" required>
     </div>
     
-  <input type="submit" class="btn btn-info" value="Submit">
+  <div class="form-group">
+                <button type="submit" class="btn btn-info">Sign Up</button>
+            </div>
+  <div class="wrapper">
+
+    <h4><strong>Do you have account already?</strong></h4>
+    <a href="#/signin">
+     <input type="submit" class="btn btn-danger" value="Signin">
+   </a>
+ </div>
 </form>
 
-<h4><strong>Do you have account already?</strong></h4>
-<a href="#/signin">
- <input type="submit" class="btn btn-danger" value="Signin">
-</a>
 </div>
+</div>
+</div

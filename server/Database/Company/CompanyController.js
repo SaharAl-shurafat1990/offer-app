@@ -26,8 +26,9 @@ module.exports = {
     })
   },
   signin: function (req, res, next) {
-    var email = req.body.email
-    var password = req.body.password
+
+    var email = req.body.email;
+    var password = req.body.password;
 
     findCompany({email: email})
       .then(function (company) {
@@ -52,15 +53,17 @@ module.exports = {
   },
 
   signup: function (req, res, next) {
-    var companyOwner = req.body.companyOwner
-    var companyName = req.body.companyName
-    var phoneNumber = req.body.phoneNumber
-    var email = req.body.email
-    var location = req.body.location
-    var companyType = req.body.companyType
-    var description = req.body.description
-    var password = req.body.password
-    var salt = req.body.salt
+
+    console.log(req.body)
+    var companyOwner = req.body.companyOwner;
+    var companyName = req.body.companyName;
+    var phoneNumber = req.body.phoneNumber;
+    var email = req.body.email;
+    var location = req.body.location;
+    var companyType = req.body.companyType;
+    var description = req.body.description;
+    var password = req.body.password;
+    //var salt = req.body.salt;
     // console.log(req.body)
     // check to see if user already exists
     findCompany({companyName: companyName})
