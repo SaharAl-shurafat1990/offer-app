@@ -4,7 +4,7 @@
   "description": "find the best offer for you",
   "main": "index.js",
   "scripts": {
-    "test": "mocha server/Database/Company/spec.js",
+    "test": "karma start karma.conf.js",
     "start": "nodemon server/server.js"
   },
   "repository": {
