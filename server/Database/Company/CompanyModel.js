@@ -1,7 +1,7 @@
-var Q = require('q');
-var mongoose = require('mongoose');
-var bcrypt = require('bcrypt-nodejs');
-var salt = 10;
+var Q = require('q')
+var mongoose = require('mongoose')
+var bcrypt = require('bcrypt-nodejs')
+var salt = 10
 
 
 var CompanySchema = new mongoose.Schema({
@@ -37,47 +37,47 @@ var CompanySchema = new mongoose.Schema({
     required : true
   },
   salt : String
-});
+})
 
 CompanySchema.methods.comparePasswords = function (candidatePassword) {
-  var savedPassword = this.password;
+  var savedPassword = this.password
   return Q.Promise(function (resolve, reject) {
     bcrypt.compare(candidatePassword, savedPassword, function (err, isMatch) {
       if (err) {
-        reject(err);
+        reject(err)
       } else {
-        resolve(isMatch);
+        resolve(isMatch)
       }
-    });
-  });
-};
+    })
+  })
+}
 
 CompanySchema.pre('save', function (next) {
-  var company = this;
+  var company = this
 
   // only hash the password if it has been modified (or is new)
   if (!company.isModified('password')) {
-    return next();
+    return next()
   }
 
   // generate a salt
   bcrypt.genSalt(salt, function (err, salt) {
     if (err) {
-      return next(err);
+      return next(err)
     }
 
     // hash the password along with our new salt
     bcrypt.hash(company.password, salt, null, function (err, hash) {
       if (err) {
-        return next(err);
+        return next(err)
       }
 
       // override the cleartext password with the hashed one
-      company.password = hash;
-      company.salt = salt;
-      next();
-    });
-  });
-});
+      company.password = hash
+      company.salt = salt
+      next()
+    })
+  })
+})
 
-module.exports = mongoose.model('companies', CompanySchema);
+module.exports = mongoose.model('companies', CompanySchema)

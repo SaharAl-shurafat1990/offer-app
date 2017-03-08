@@ -3,7 +3,7 @@ const request = require('supertest')
 const expect = require('chai').expect
 
 describe('company', function () {
-  it('Should get all users', function (done) {
+  it('Should get all companies', function (done) {
     request(app)
       .get('/api/companies/')
       .set('Accept', 'application/json')
@@ -20,15 +20,15 @@ describe('company', function () {
 
   xit('Should create a new Company', function (done) {
     request(app)
-      .post('/api/company/')
+      .post('/api/companies/signup')
       .send({
-        companyOwner: "FATIMA",
-        companyName: "HAMAMI",
-        phoneNumber: "078788231",
-        email: "fatima@hotmail.com",
-        location: "Rainbo STR",
-        companyType: "coffe",
-        password: "fatimahamami"
+        companyOwner: 'dd',
+        companyName: 'dddddsssssSdsd',
+        phoneNumber: '078788231',
+        email: 'fatima@hotmail.com',
+        location: 'Rainbo STR',
+        companyType: 'coffe',
+        password: 'fatimahamami'
       })
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
@@ -37,34 +37,24 @@ describe('company', function () {
         if (err) {
           console.log(err)
         }
-        expect(resp.body).to.be.an('object')
+        expect(resp.body.email).to.equal('fatima@hotmail.com')
         done()
       })
   })
 
-  xit('Should get one company', function (done) {
+  it('Should get one company', function (done) {
     request(app)
-      .post('/api/company/')
-      .send([{
-        title: 'Test Book',
-        auther: 'Ibrahim',
-        pageNumber: '666'
-      }])
+      .post('/api/companies/signin')
+      .send({
+        email: 'fatima@hotmail.com',
+        password: 'fatimahamami'
+      })
       .set('Accept', 'application/json')
       .end(function (err, resp) {
         if (err) {
           console.log(err)
         }
-        let book = resp.body
-        request(app)
-          .get('/api/company/' + book.title)
-          .end(function (err, resp) {
-            if (err) {
-              throw new Error(err)
-            }
-            expect(resp.body.book.title).to.equal('Test Book')
-            done()
-          })
+      expect(resp.body.email).to.equal('fatima@hotmail.com')
       })
       done()
   })
