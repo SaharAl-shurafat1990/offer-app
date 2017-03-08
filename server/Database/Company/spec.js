@@ -3,9 +3,9 @@ const request = require('supertest')
 const expect = require('chai').expect
 
 describe('company', function () {
-  it('Should get all companies', function (done) {
+  it('Should get all users', function (done) {
     request(app)
-      .get('/api/companies/')
+      .get('/api/users/')
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(200)
@@ -18,17 +18,13 @@ describe('company', function () {
       })
   })
 
-  it('Should create a new Company', function (done) {
+  xit('Should create a new User', function (done) {
     request(app)
-      .post('/api/companies/signup')
+      .post('/api/users/signup')
       .send({
-        companyOwner: "dd",
-        companyName: "dddssSdsd",
-        phoneNumber: "078788231",
-        email: "fatima@hotmail.com",
-        location: "Rainbo STR",
-        companyType: "coffe",
-        password: "fatimahamami"
+        username: 'dd',
+        email: 'fatima@hotmail.com',
+        password: 'fatimahamami'
       })
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
@@ -37,24 +33,24 @@ describe('company', function () {
         if (err) {
           console.log(err)
         }
-        expect(resp.body.email).to.equal("fatima@hotmail.com")
+        expect(resp.body.email).to.equal('fatima@hotmail.com')
         done()
       })
   })
 
-  it('Should get one company', function (done) {
+  it('Should get one user', function (done) {
     request(app)
-      .post('/api/companies/signin')
+      .post('/api/users/signin')
       .send({
-        email: "fatima@hotmail.com",
-        password: "fatimahamami"
+        email: 'fatima@hotmail.com',
+        password: 'fatimahamami'
       })
       .set('Accept', 'application/json')
       .end(function (err, resp) {
         if (err) {
           console.log(err)
         }
-      expect(resp.body.email).to.equal("fatima@hotmail.com")
+      expect(resp.body.email).to.equal('fatima@hotmail.com')
       })
       done()
   })

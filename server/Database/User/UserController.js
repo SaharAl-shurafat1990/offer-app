@@ -1,75 +1,75 @@
-var Q = require('q');
-var jwt = require('jwt-simple');
-var User = require('./UserModel.js');
+var Q = require('q')
+var jwt = require('jwt-simple')
+var User = require('./UserModel.js')
 
 
 // Promisify a few mongoose methods with the `q` promise library
-var findUser = Q.nbind(User.findOne, User);
-var createUser = Q.nbind(User.create, User);
+var findUser = Q.nbind(User.findOne, User)
+var createUser = Q.nbind(User.create, User)
 
 module.exports = {
   getAll: function(req,res){
     User.find().exec(function (err,allUsers) {
       if (err) {
-        res.status(500).send(err);
+        res.status(500).send(err)
       }else{
         res.json(allUsers)
       }
     })
   },
   signin: function (req, res, next) {
-    var email = req.body.email;
-    var password = req.body.password;
+    var email = req.body.email
+    var password = req.body.password
 
-    findUser({username: username})
+    findUser({email: email})
       .then(function (user) {
         if (!user) {
-          next(new Error('User does not exist'));
+          next(new Error('User does not exist'))
         } else {
           return user.comparePasswords(password)
             .then(function (foundUser) {
               if (foundUser) {
-                var token = jwt.encode(user, 'secret');
+                var token = jwt.encode(user, 'secret')
                 console.log(user._id)
-                res.json({token: token,user:user});
+                res.json({token: token,user:user})
               } else {
-                return next(new Error('No user'));
+                return next(new Error('No user'))
               }
-            });
+            })
         }
       })
       .fail(function (error) {
-        next(error);
-      });
+        next(error)
+      })
   },
 
   signup: function (req, res, next) {
-    var username = req.body.username;
-    var email = req.body.email;
-    var password = req.body.password;
+    var username = req.body.username
+    var email = req.body.email
+    var password = req.body.password
     // console.log(req.body)
     // check to see if user already exists
     findUser({username: username})
       .then(function (user) {
         if (user) {
-          next(new Error('User already exist!'));
+          next(new Error('User already exist!'))
         } else {
           // make a new user if not one
           return createUser({
             username: username,
             password: password
 
-          });
+          })
         }
       })
       .then(function (user) {
         // create token to send back for auth
-        var token = jwt.encode(user, 'secret');
-        res.json({token: token});
+        var token = jwt.encode(user, 'secret')
+        res.json({token: token})
       })
       .fail(function (error) {
-        next(error);
-      });
+        next(error)
+      })
   },
 
   checkAuth: function (req, res, next) {
@@ -77,23 +77,23 @@ module.exports = {
     // grab the token in the header is any
     // then decode the token, which we end up being the user object
     // check to see if that user exists in the database
-    var token = req.headers['x-access-token'];
+    var token = req.headers['x-access-token']
     if (!token) {
-      next(new Error('No token'));
+      next(new Error('No token'))
     } else {
-      var user = jwt.decode(token, 'secret');
+      var user = jwt.decode(token, 'secret')
       console.log(token)
       findUser({username: user.username})
         .then(function (foundUser) {
           if (foundUser) {
-            res.send(200);
+            res.send(200)
           } else {
-            res.send(401);
+            res.send(401)
           }
         })
         .fail(function (error) {
-          next(error);
-        });
+          next(error)
+        })
     }
   }
-};
+}
