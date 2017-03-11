@@ -9,7 +9,7 @@ require('./config/routes.js')(app, express)
 /*									Database								 */
 //=============================================================================
 
-var mongoURI ='mongodb://localhost/offerDB'
+var mongoURI = process.env.MONGODB_URI || 'mongodb://localhost/offerDB'
 var db = mongoose.connect(mongoURI)
 db = mongoose.connection
 
@@ -20,7 +20,8 @@ db.once('open',function () {
 //=============================================================================
 /*									Server   								 */
 //=============================================================================
-var port = 8000
+//adding process.env.port
+var port = process.env.PORT || 8000
 app.listen(port ,function () {
 	// console.log('ready at ' + port);
 })
