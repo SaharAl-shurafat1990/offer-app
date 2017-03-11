@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint server",
+    "karma" :"karma start karma.conf.js",
     "test": "mocha server/Database/Company/spec.js server/Database/User/spec.js ",
     "start": "nodemon server/server.js "
   },
@@ -30,10 +31,8 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
-<<<<<<< HEAD
     "eslint": "^3.17.1",
     "eslint-plugin-standard": "^2.1.1",
-=======
     "grunt": "^1.0.1",
     "grunt-contrib-jshint": "^1.1.0",
     "grunt-karma": "^2.0.0",
@@ -48,7 +47,6 @@
     "mocha": "^3.2.0",
     "phantomjs-prebuilt": "^2.1.14",
     "sinon": "^1.17.7",
->>>>>>> 743b1eaccbc8e4c39dd6e2cab040de0b0bad63d9
     "supertest": "^3.0.0"
   }
 }
