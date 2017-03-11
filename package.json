@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint server",
-    "karma" :"karma start karma.conf.js",
+    "karma": "karma start karma.conf.js",
     "test": "mocha server/Database/Company/spec.js server/Database/User/spec.js ",
     "start": "nodemon server/server.js "
   },
@@ -26,6 +26,7 @@
     "jwt-simple": "^0.5.0",
     "mongoose": "^4.8.5",
     "morgan": "^1.1.1",
+    "nodemon": "^1.11.0",
     "q": "^1.4.1",
     "request": "^2.36.0"
   },
