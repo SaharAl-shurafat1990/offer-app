@@ -9,7 +9,7 @@ require('./config/routes.js')(app, express)
 /*									Database								 */
 //=============================================================================
 
-var mongoURI ='mongodb://localhost/offerDB'
+var mongoURI = process.env.MONGODB_URI || 'mongodb://localhost/offerDB'
 var db = mongoose.connect(mongoURI)
 db = mongoose.connection
 
