@@ -7,7 +7,7 @@
 	
 </head>
 <body class="m">
-<div>
+<!-- <div>
 	<h1 class="h" >City Offers</h1>
 </div>
 <div id="custom-bootstrap-menu" class="navbar navbar-default " role="navigation">
@@ -36,8 +36,81 @@
 			</div>
 			<div> </div>
 		</div>
-	</div>
-	<div  ng-view></div>
+	</div> -->
+	<header>
+            <div class="container header inner">
+            <nav class="navbar">
+              <div class="container">
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>                        
+                  </button>
+                  <a class="navbar-brand" href="#">City Offers</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                  <ul class="nav navbar-nav navbar-right masthead-nav">
+                    <li><a href="#/signin"> Sign in as User</a></li>
+                    <li><a href="#/signinCom"> Sign in as Company</a></li>
+                    <li><a href="#/signup">Sign up as User</a></li>
+                    <li><a href="#/signupCom"> Sign in as Company</a></li>
+                    <li><a href="#/signout"> Sign Out</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div  ng-view></div>
+            </nav>
+            </div>
+        </header>
+        <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+          <a href="#">About</a>
+          <a href="#">Services</a>
+          <a href="#">Clients</a>
+          <a href="#">Contact</a>
+        </div>
+
+        <span style="font-size:30px;cursor:pointer;float:right;color:#fff;position:absolute;top:5%;right: 10px;" onclick="openNav()">☰</span>
+
+    
+    </div>
+    <script type="text/javascript">
+        /* Side slide menu */
+    function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+/* tab slider */
+$(document).ready( function() {
+    $('#myCarousel').carousel({
+      
+        interval:   4000
+  });
+  
+  var clickEvent = false;
+  $('#myCarousel').on('click', '.nav a', function() {
+      clickEvent = true;
+      $('.nav li').removeClass('active');
+      $(this).parent().addClass('active');    
+  }).on('slid.bs.carousel', function(e) {
+    if(!clickEvent) {
+      var count = $('.nav').children().length -1;
+      var current = $('.nav li.active');
+      current.removeClass('active').next().addClass('active');
+      var id = parseInt(current.data('slide-to'));
+      if(count == id) {
+        $('.nav li').first().addClass('active');  
+      }
+    }
+    clickEvent = false;
+  });
+});
+    </script>
+	
 
         
  <script src="app/lib/jquery.js"></script>

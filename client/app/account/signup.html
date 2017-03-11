@@ -3,11 +3,15 @@
 <div class="col-md-4"></div>
     <div class="col-md-4">
   <form ng-submit="signup()" role="login">
-    
     <div class="form-group">
       <label for="user">User Name:</label>
       <input ng-model="user.username" 
       type="text" class="form-control" placeholder="your name" required>
+    </div>
+    <div class="form-group">
+      <label for="user">Email:</label>
+      <input ng-model="user.email" 
+      type="email" class="form-control" placeholder="your email" required>
     </div>
     <div class="form-group">
       <label for="pwd">Password:</label>

@@ -26,12 +26,12 @@ var CompanySchema = new mongoose.Schema({
     // unique : true
   },
   location : String,
-  companyType : String,
+  //companyType : String,
 
-  // description: {
-  //   type: String,
-  //   required: true
-  // },
+  description: {
+    type: String,
+    required: true
+  },
   password : {
     type : String,
     required : true

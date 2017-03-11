@@ -26,10 +26,6 @@ angular.module('offers', [
       templateUrl: 'app/account/signinCom.html',
       controller: 'comAuthController'
     })
-    .when('/', {
-      templateUrl: 'app/main/main.html',
-      controller: 'MainController'
-    })
     
     .otherwise({redirectTo:'/'});
  
