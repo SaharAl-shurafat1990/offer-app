@@ -44,10 +44,10 @@ module.exports = {
   },
 
   signup: function (req, res, next) {
-    var username = req.body.username
-    var email = req.body.email
-    var password = req.body.password
-    // console.log(req.body)
+    var username = req.body.username;
+    var email = req.body.email;
+    var password = req.body.password;
+     console.log(req.body)
     // check to see if user already exists
     findUser({username: username})
       .then(function (user) {
@@ -57,6 +57,7 @@ module.exports = {
           // make a new user if not one
           return createUser({
             username: username,
+            email:email,
             password: password
 
           })

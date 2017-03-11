@@ -1,13 +1,17 @@
-<div class="container">
+<div class="container" style="background: url(https://images.freecreatives.com/wp-content/uploads/2016/02/Black-Wood-Background-with-Grunge-Effect.jpg) no-repeat center center fixed;">
 <div class="row" id="pwd-container">
 <div class="col-md-4"></div>
     <div class="col-md-4">
   <form ng-submit="signup()" role="login">
-    
     <div class="form-group">
       <label for="user">User Name:</label>
       <input ng-model="user.username" 
       type="text" class="form-control" placeholder="your name" required>
+    </div>
+    <div class="form-group">
+      <label for="user">Email:</label>
+      <input ng-model="user.email" 
+      type="email" class="form-control" placeholder="your email" required>
     </div>
     <div class="form-group">
       <label for="pwd">Password:</label>
