@@ -16,7 +16,7 @@ angular.module('offers.auth', [])
         console.log(data)
         $window.localStorage.setItem('com.offers', data.token);
         $window.localStorage.setItem('user.offers', $scope.user.username);
-
+        $window.location.reload();
         $location.path('/');
         
         
@@ -44,6 +44,7 @@ angular.module('offers.auth', [])
       .then(function (token) {
         $window.localStorage.setItem('com.offers', token);
         $window.localStorage.setItem('user.offers', $scope.user.username);
+        $window.location.reload();
         $location.path('/');
       })
       .catch(function (error) {
@@ -61,6 +62,7 @@ angular.module('offers.auth', [])
 }
 
 $scope.signout = function(){
+  $window.location.reload();
   Auth.signout();
 }
 });

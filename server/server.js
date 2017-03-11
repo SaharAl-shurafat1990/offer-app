@@ -23,7 +23,7 @@ db.once('open',function () {
 //adding process.env.port
 var port = process.env.PORT || 8000
 app.listen(port ,function () {
-	// console.log('ready at ' + port);
+	console.log('ready at ' + port);
 })
 
 
