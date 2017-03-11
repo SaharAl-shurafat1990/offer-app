@@ -4,10 +4,14 @@
   "description": "find the best offer for you",
   "main": "index.js",
   "scripts": {
+
+    "start": "nodemon server/server.js",
+
     "lint": "eslint server",
     "karma": "karma start karma.conf.js",
     "test": "mocha server/Database/Company/spec.js server/Database/User/spec.js ",
     "start": "nodemon server/server.js "
+
   },
   "repository": {
     "type": "git",
@@ -32,6 +36,10 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+
+    "eslint": "^3.17.1",
+    "eslint-plugin-standard": "^2.1.1",
+
     "eslint": "^3.17.1",
     "eslint-plugin-standard": "^2.1.1",
     "grunt": "^1.0.1",
