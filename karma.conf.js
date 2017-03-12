@@ -13,7 +13,8 @@ module.exports = function (config) {
             './client/app/services.js',
             './client/app/app.js',
             './client/app/account/*.js',
-            './test/test.spec.js'
+            './test/test.spec.js',
+            './test/authSpec.js'
         ],
 
         reporters: ['spec'],
