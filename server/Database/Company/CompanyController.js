@@ -60,11 +60,11 @@ module.exports = {
     var phoneNumber = req.body.phoneNumber;
     var email = req.body.email;
     var location = req.body.location;
-    var companyType = req.body.companyType;
+    //var companyType = req.body.companyType;
     var description = req.body.description;
     var password = req.body.password;
     //var salt = req.body.salt;
-    // console.log(req.body)
+     console.log(req.body)
     // check to see if user already exists
     findCompany({companyName: companyName})
       .then(function (company) {
@@ -78,7 +78,7 @@ module.exports = {
             phoneNumber: phoneNumber,
             email: email,
             location: location,
-            companyType: companyType,
+           // companyType: companyType,
             description: description,
             password: password
           })
