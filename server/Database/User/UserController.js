@@ -18,10 +18,10 @@ module.exports = {
     })
   },
   signin: function (req, res, next) {
-    var email = req.body.email
+    var username = req.body.username
     var password = req.body.password
 
-    findUser({email: email})
+    findUser({username: username})
       .then(function (user) {
         if (!user) {
           next(new Error('User does not exist'))

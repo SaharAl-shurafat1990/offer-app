@@ -4,7 +4,10 @@ angular.module('offers.auth', [])
    $scope.user = {};
      if($window.localStorage.getItem("com.offers")) {
         $location.path('/');
-      } 
+      }
+      $scope.FBlogin = function (){
+
+      }
 
   $scope.signin = function () {
     var passFlag = $scope.user.password;
@@ -18,8 +21,8 @@ angular.module('offers.auth', [])
         $window.localStorage.setItem('user.offers', $scope.user.username);
         $window.location.reload();
         $location.path('/');
-        
-        
+
+
       })
       .catch(function (error) {
         console.log(error);
@@ -66,4 +69,3 @@ $scope.signout = function(){
   Auth.signout();
 }
 });
-  
