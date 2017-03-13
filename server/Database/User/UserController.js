@@ -1,6 +1,19 @@
 var Q = require('q')
 var jwt = require('jwt-simple')
 var User = require('./UserModel.js')
+var passport = require('passport')
+var FacebookStrategy = require('passport-facebook').Strategy;
+
+passport.use(new FacebookStrategy({
+    clientID: "1176911719073137",
+    clientSecret: "188d1864fd1171cd8b6b5b12e4489907",
+    callbackURL: "http://localhost/auth/facebook/callback"
+  },
+  function(accessToken, refreshToken, profile, done) {
+    console.log("we are here")
+    done(null,profile)
+  }
+));
 
 
 // Promisify a few mongoose methods with the `q` promise library
