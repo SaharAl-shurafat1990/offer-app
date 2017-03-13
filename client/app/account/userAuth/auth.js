@@ -19,8 +19,10 @@ angular.module('offers.auth', [])
         console.log(data)
         $window.localStorage.setItem('com.offers', data.token);
         $window.localStorage.setItem('user.offers', $scope.user.username);
+        $rootScope.isLoggedIn = true;
         $window.location.reload();
         $location.path('/');
+
 
 
       })

@@ -64,7 +64,7 @@ module.exports = {
     var description = req.body.description;
     var password = req.body.password;
     //var salt = req.body.salt;
-     console.log(req.body)
+     //console.log(req.body)
     // check to see if user already exists
     findCompany({companyName: companyName})
       .then(function (company) {
