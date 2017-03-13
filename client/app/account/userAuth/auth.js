@@ -1,12 +1,14 @@
 angular.module('offers.auth', [])
 
 .controller('AuthController', function ($scope, $window, $location, $rootScope, Auth) {
+
    $scope.user = {};
      if($window.localStorage.getItem("com.offers")) {
         $location.path('/');
       }
-      $scope.FBlogin = function (){
-
+      $scope.facebook={
+        username:"",
+        email:""
       }
 
   $scope.signin = function () {
