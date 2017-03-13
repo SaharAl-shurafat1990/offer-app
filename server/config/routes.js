@@ -1,6 +1,6 @@
 var userController = require('../Database/User/UserController.js')
 var companyController = require('../Database/Company/CompanyController.js')
-var FacebookStrategy = require('passport-facebook').Strategy;
+// var FacebookStrategy = require('passport-facebook').Strategy;
 
 module.exports = function (app) {
     app.post('/api/users/signup', userController.signup)
