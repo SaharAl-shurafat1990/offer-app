@@ -64,11 +64,6 @@ module.exports = {
 	 	    }
 	    })
 	},
-
-          })
-	 	    }
-	    })
-	},
   deleteOffer:function(req,res){
       Offer.remove({_id:req.body.id},function(err,ok){
         if(err){

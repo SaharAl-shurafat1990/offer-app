@@ -32,7 +32,7 @@ http://www.bootstrapzen.com/item/135/simple-login-form-logo/
 	}
 
 .m {
-	background: url(http://more-sky.com/data/out/9/IMG_311185.jpg) no-repeat center center fixed;
+	background: url(http://cdn29.us1.fansshare.com/images/newyorkcity/new-york-city-black-and-white-wallpaper-background-wallpaper-black-and-white-871196310.jpg) repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -121,10 +121,10 @@ h4 {
 }
 
 header {
-  background: url(http://more-sky.com/data/out/9/IMG_311185.jpg) repeat; 
+  background: url(http://hdwallpaperbackgrounds.net/wp-content/uploads/2016/08/black-background-30.jpg) repeat; 
   width: 100%;
-  height: 700px;
-  background-color: #060;
+  height:100%;
+  background-color: black;
   color: #fff;
   position: relative;
   text-align: center;
@@ -135,7 +135,7 @@ header {
   width: 100%;
   height: 100%; 
   min-height: 100%;
-  background: rgba(0, 0, 0, 0.7) url(http://more-sky.com/data/out/9/IMG_311185.jpg) repeat;
+  background: rgba(0, 0, 0, 0.7) url(http://cdn29.us1.fansshare.com/images/newyorkcity/new-york-city-black-and-white-wallpaper-background-wallpaper-black-and-white-871196310.jpg) repeat;
   -webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
   box-shadow: inset 0 0 100px rgba(0,0,0,.5);
 }
