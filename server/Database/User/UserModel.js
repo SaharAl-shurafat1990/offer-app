@@ -18,8 +18,8 @@ var UserSchema = new mongoose.Schema({
     password: {
       type: String,
       required: true
-    },
-    salt: String
+    }
+    // salt: String
   })
 UserSchema.methods.comparePasswords = function (candidatePassword) {
   var savedPassword = this.password

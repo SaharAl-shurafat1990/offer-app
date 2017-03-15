@@ -38,28 +38,29 @@ module.exports = {
     })
   },
   updateOffer:function(req,res){
-        Offer.findById(req.user._id,function (error, offer) {
-	 			if(!offer){
-	 				console.log("xxxxx")
-	 				res.status(500).send(error);
-	 			}else{
-	 		    Offer.update({id:req.body._id},req.body,function(err,newoffer){
-	 			   if(err){
-				      res.status(500).send('err');
-			        }else{
-				     res.status(200).send(newoffer);
-			       }
-          })
-	 	    }
-	    })
-	},
-  deleteOffer:function(req,res){
-      Offer.remove({_id:req.body.id},function(err,ok){
-        if(err){
-            res.status(500).send('err');
+    var newoffer = {
+      description:req.body.description,
+      location:req.body.location,
+      date:req.body.date
+    }
+    Offer.findOneAndUpdate({_id:req.params.id},req.body,function(err,newoffer){
+      console.log(req.body)
+      console.log(newoffer)
+     if(err){
+        res.status(500).send(err);
         }else{
-           res.status(200).send('deleted');
-        }
-      })
-  }
+       res.status(200).send(newoffer);
+       }
+    })
+	}
+  // deleteOffer:function(req,res){
+  //     Offer.findById({_id:req.params._id},function(err,ok){
+  //       console.log(req.body._id)
+  //       if(err){
+  //           res.status(500).send('err');
+  //       }else{
+  //          res.status(200).send(ok);
+  //       }
+  //     })
+  // }
 }
