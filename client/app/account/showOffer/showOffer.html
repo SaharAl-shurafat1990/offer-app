@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 <div class="container-fluid">
@@ -75,12 +76,55 @@
               <br>
             </div>
           </div>
+=======
+<!-- <div   ng-init="getAllOffers()">
+ 
+    <div class="panel-body">
+      <div class="row" ng-repeat="offer in all">
+     
+        <div class="col-md-6">
+         <div class="col-md-6">
+        <img class="thumbnail" src="{{}}" style="width: 180px;height: 280px">
+        </div>
+        <div class="col-md-6">
+           <h2 style="font-weight: bold;">{{offer.s_type}}</h2> 
+          <p><span  style="color: red"> Email </span> {{offer.location}}</p>
+          <p><span style="color: red">Phone : </span>{{offer.date}}</p>
+          <p style="color:#380001">simple description :</p>
+          <p>{{offer.description}}</p>
+        </div>
+      </div>
+    
+  </div>
+</div>
+</div> -->
+<!-- html page for show offer -->
+<!-- <div  ng-init="getAllOffers()">
+
+  <div class="panel-heading" style="background-color: #09091e"> 
+    <h3 class="panel-title" style="color: white; text-align: center;">Latest Offers</h3>
+  </div>
+    <div class="panel-body">
+      <div class="row">
+      <div ng-repeat="offer in all">
+        <div class="col-md-6">
+        <div class="col-md-6">
+        <div class="col-md-6">
+        <img class="thumbnail" src="{{offer.img}}" style="width: 180px;height: 280px">
+        <p><span style="color: #380001">Company Location </span> {{offer.location}}</p>
+          <p><span style="color: #380001">Expire Date </span>{{offer.date}}</p>
+          <p style="color:#380001">simple description :</p>
+          <p>{{offer.description}}</p>
+        </div>
+          
+>>>>>>> 9c17558ab79351e74fa085bf52fa082d9178e571
         </div>
       </div>
     </div>
   </div>
 </div>
 
+<<<<<<< HEAD
 <footer class="container-fluid">
   <p>Footer Text</p>
 </footer>
@@ -113,3 +157,36 @@
     }
   </style>
 
+=======
+</div> -->
+<div  ng-init="getAllOffers()">
+ <div class="panel-heading" style="background-color: black"> 
+
+
+<div class="col-xs-12 col-sm-8 col-md-9 content-column">
+<div class="panel-body">
+            <div class="grid">
+              <div class="row" >
+              <div ng-repeat="offer in all">
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item"> 
+                  <div class="box-masonry"><a href="" title="" class="box-masonry-image with-hover-overlay with-hover-icon">
+                  <img src="{{offer.img}}" alt="" class="img-responsive"></a>
+                    <div class="box-masonry-text">
+                      <h4> <a href="">{{offer.location}}</a></h4>
+                      <div class="box-masonry-desription">
+                        <p> {{offer.description}} </p>
+                        <p>{{offer.date}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+               
+              </div>
+            </div>
+            </div>
+          </div>
+          </div>
+          </div>
+          </div>
+         
+>>>>>>> 9c17558ab79351e74fa085bf52fa082d9178e571
