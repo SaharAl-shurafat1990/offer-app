@@ -1,7 +1,9 @@
 var userController = require('../Database/User/UserController.js')
 var offerController = require('../Database/Offer/OfferController.js')
 var companyController = require('../Database/Company/CompanyController.js')
+
 var passport = require('passport')
+
 
 module.exports = function (app) {
     app.post('/api/users/signup', userController.signup)
