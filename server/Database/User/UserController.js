@@ -62,7 +62,7 @@ module.exports = {
     var username = req.body.username;
     var email = req.body.email;
     var password = req.body.password;
-     console.log(req.body)
+    //  console.log(req.body)
     // check to see if user already exists
     findUser({username: username})
       .then(function (user) {
@@ -81,7 +81,7 @@ module.exports = {
       .then(function (user) {
         // create token to send back for auth
         var token = jwt.encode(user, 'secret')
-        res.json({token: token})
+        res.status(201).json({token: token})
       })
       .fail(function (error) {
         next(error)

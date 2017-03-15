@@ -29,8 +29,7 @@ var CompanySchema = new mongoose.Schema({
   //companyType : String,
 
   description: {
-    type: String,
-    required: true
+    type: String
   },
   password : {
     type : String,

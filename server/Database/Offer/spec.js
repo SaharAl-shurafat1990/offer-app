@@ -47,7 +47,7 @@ describe('offers', function () {
       })
   })
 
-  xit('Should get one offer', function (done) {
+  it('Should get one offer', function (done) {
     request(app)
       .post('/api/getoffer')
       .send({
