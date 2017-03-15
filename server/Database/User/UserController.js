@@ -1,6 +1,7 @@
 var Q = require('q')
 var jwt = require('jwt-simple')
 var User = require('./UserModel.js')
+
 var passport = require('passport')
 var FacebookStrategy = require('passport-facebook').Strategy;
 
@@ -14,6 +15,7 @@ passport.use(new FacebookStrategy({
     done(null,profile)
   }
 ));
+
 
 
 // Promisify a few mongoose methods with the `q` promise library

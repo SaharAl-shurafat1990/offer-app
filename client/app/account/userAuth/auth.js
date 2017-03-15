@@ -22,7 +22,9 @@ angular.module('offers.auth', [])
         $window.localStorage.setItem('com.offers', data.token);
         $window.localStorage.setItem('user.offers', $scope.user.username);
         $window.location.reload();
+        $rootScope.isLoggedIn = true;
         $location.path('/');
+
 
 
       })
@@ -67,7 +69,10 @@ angular.module('offers.auth', [])
 }
 
 $scope.signout = function(){
-  $window.location.reload();
+  $rootScope.isLoggedIn = false;
+  //$location.path('#/signin');
+  
   Auth.signout();
+  $window.location.reload();
 }
 });
