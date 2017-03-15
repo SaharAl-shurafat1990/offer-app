@@ -11,10 +11,13 @@ var OfferSchema = new mongoose.Schema({
       required: true
     },
     date:{
+
       type : String,
       required : true
     },
      img:String
+
+    
       })
 
   module.exports = mongoose.model('Offer', OfferSchema)

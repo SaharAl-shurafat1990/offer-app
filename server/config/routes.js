@@ -1,7 +1,9 @@
 var userController = require('../Database/User/UserController.js')
 var offerController = require('../Database/Offer/OfferController.js')
 var companyController = require('../Database/Company/CompanyController.js')
-//var passport = require('passport')
+
+var passport = require('passport')
+
 
 module.exports = function (app) {
     app.post('/api/users/signup', userController.signup)
@@ -13,9 +15,12 @@ module.exports = function (app) {
     app.get('/api/companies/', companyController.getAll)
     app.get('/api/offers/' , offerController.getAll)
     app.post('/api/updateOffer',offerController.updateOffer);
+
+    // app.post('/api/getoffer',offerController.getOffer);
+    app.post('/api/deleteoffer', offerController.deleteOffer);
     app.post('/api/offers/addoffer' , offerController.addOffer)
-// app.get('/auth/facebook', passport.authenticate('facebook'));
-// app.get('/auth/facebook/callback',
-//  passport.authenticate('facebook', { successRedirect: '/',
-//                                       failureRedirect: '/login' }));
+app.get('/auth/facebook', passport.authenticate('facebook'));
+app.get('/auth/facebook/callback',
+  passport.authenticate('facebook', { successRedirect: '/',
+                                      failureRedirect: '/login' }));
 }
