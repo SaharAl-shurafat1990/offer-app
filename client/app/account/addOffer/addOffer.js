@@ -20,9 +20,9 @@
       console.log($scope.data)
      setTimeout(function(){
 
-Offer.insert($scope.data)
-    .then(function (serv) {
-        console.log(serv)
+  Offer.insert($scope.data)
+    .then(function (offer) {
+        console.log(offer)
         
         console.log($scope.data)
         $location.path('/');
@@ -38,8 +38,9 @@ Offer.insert($scope.data)
   $scope.getAllOffers = function(){
     Offer.getAll()
     .then(function (data) {
+      console.log(data)
      return $scope.all = data;
-      // console.log(data)
+       console.log(data)
     })
     .catch(function (error) {
         console.log(error);

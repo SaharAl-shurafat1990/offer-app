@@ -1,12 +1,14 @@
 angular.module('offers.auth', [])
 
 .controller('AuthController', function ($scope, $window, $location, $rootScope, Auth) {
+
    $scope.user = {};
      if($window.localStorage.getItem("com.offers")) {
         $location.path('/');
       }
-      $scope.FBlogin = function (){
-
+      $scope.facebook={
+        username:"",
+        email:""
       }
 
   $scope.signin = function () {
@@ -19,8 +21,8 @@ angular.module('offers.auth', [])
         console.log(data)
         $window.localStorage.setItem('com.offers', data.token);
         $window.localStorage.setItem('user.offers', $scope.user.username);
-        $rootScope.isLoggedIn = true;
         $window.location.reload();
+        $rootScope.isLoggedIn = true;
         $location.path('/');
 
 
@@ -67,7 +69,10 @@ angular.module('offers.auth', [])
 }
 
 $scope.signout = function(){
-  $window.location.reload();
+  $rootScope.isLoggedIn = false;
+  //$location.path('#/signin');
+  
   Auth.signout();
+  $window.location.reload();
 }
 });

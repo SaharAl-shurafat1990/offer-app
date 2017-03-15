@@ -1,73 +1,64 @@
+<div class="container">
+  <div class="row main">
+    <div class="main-login main-center">
+      <h1>Add Offer</h1>
+      <form ng-submit="addOffer()">
 
-  <form class="well form-horizontal" ng-submit="addOffer()"  >
-    <fieldset>
-
-      <!-- Form Name -->
-      <legend><center><h2><b>Add Offer</b></h2></center></legend><br>
-      <div class="form-group">
-        <label class="col-md-4 control-label">Company Name</label>  
-        <div class="col-md-4 inputGroupContainer">
-          <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-            <input ng-model="data.companyName"  class="form-control"  type="email" required>
+        <div class="form-group">
+          <label for="name" class="cols-sm-2 control-label">Company Name</label>
+          <div class="cols-sm-10">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+              <input  type="text" class="form-control" name="name" id="name"  placeholder="Company Name"/>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="form-group">
-        <label class="col-md-4 control-label">Location</label>  
-        <div class="col-md-4 inputGroupContainer">
-          <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
-           <select class="form-control" ng-model="data.Location" >
-            <option value="Amman">Amman</option>
-            <option value="Aqaba">Aqaba</option>
-            <option value="Zarqa">Zarqa</option>
-            <option value="Irbid">Irbid</option>
-            <option value="Tafila">Tafila</option>
-             <option value="Karak">Karak</option>
-             <option value="Maan">Maan</option>
-            <option value="Other" >Other</option>
+        <div class="form-group">
+          <label  class="cols-sm-2 control-label">Location</label>
+          <div class="cols-sm-10">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+              <input ng-model="data.location" type="text" class="form-control" placeholder="Company Location"/>
+            </div>
+          </div>
+       
+
+        <div class="form-group">
+          <label  class="cols-sm-2 control-label">Description</label>
+          <div class="cols-sm-10">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+              <input  ng-model="data.description" type="text" class="form-control"  placeholder="Description"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label  class="cols-sm-2 control-label">Expire date</label>
+          <div class="cols-sm-10">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+              <select class="form-control" ng-model="data.date" >
+            <option value="One Day">One Day</option>
+            <option value="Two Days">Two Day</option>
+            <option value="Three Days">Three Days</option>
+            <option value="Four Days">Four Days</option>
+            <option value="Five Days">Five Days</option>
+             <option value="Six Days">Six Days</option>
+             <option value="Week">Week</option>
           </select>
+            </div>
           </div>
         </div>
-      </div>
-
-      <!-- Text input-->
-     
-
-      <!-- Text input-->
-      <div class="form-group">
-        <label class="col-md-4 control-label">Description</label>  
-        <div class="col-md-4 inputGroupContainer">
-          <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-indent-left"></i></span>
-            <input  ng-model="data.desc" placeholder="description" class="form-control"  type="text" required >
-          </div>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label class="col-md-4 control-label">Expire date</label>  
-        <div class="col-md-4 inputGroupContainer">
-          <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-            <input ng-model="data.s_phone"  class="form-control" type="text" required >
-          </div>
-        </div>
-      </div>
-
-
-      <!-- Text input-->
-
-<div class="form-group">
-        <label class="col-md-4 control-label">Upload Image</label>  
-        <div class="col-md-4 inputGroupContainer">
-          
-          <div class="input-group image-preview">
-    <span class="input-group-addon"><i class="glyphicon glyphicon-indent-left"></i></span>
-                <input type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
-                <span class="input-group-btn">
+        <div class="form-group">
+          <label  class="cols-sm-2 control-label">Upload Image</label>
+          <div class="cols-sm-10">
+            <div class="input-group">
+       <div class="input-group image-preview">
+        		<span class="input-group-addon"><i class="glyphicon glyphicon-indent-left"></i></span>
+        		<input type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
+        		<span class="input-group-btn">
                     <!-- image-preview-clear button -->
                     <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
                         <span class="glyphicon glyphicon-remove"></span> Clear
@@ -79,31 +70,20 @@
                         <input type="file" max-size=32154 onchange="angular.element(this).scope().upload(this.files)" required accept="image/*"/> <!-- rename it -->
                     </div>
                 </span>
-            </div><!-- /input-group image-preview [TO HERE]--> 
         </div>
     
         </div>
-      
- <!--      imgurl -->
-      
-
-
-      
-
-      <!-- Button -->
-      <div class="form-group">
-        <label class="col-md-4 control-label"></label>
-        <div class="col-md-4">
-          <button type="submit" class="btn btn-lg btn-primary btn-block" >SUBMIT <span class="glyphicon glyphicon-send"></span></button>
         </div>
-      </div>
 
-    </fieldset>
-     
-  </form>
+        <div class="form-group ">
+          <button  type="submit" id="button" class="btn btn-primary btn-lg btn-block login-button">Add Offer</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
 </div>
-</div>
- <style type="text/css">
+<style type="text/css">
                       .image-preview-input {
     position: relative;
   overflow: hidden;
@@ -128,6 +108,7 @@
 }
                     </style>
 
+
                     <script type="text/javascript">
                       
                       $(document).on('click', '#close-preview', function(){ 
@@ -143,52 +124,49 @@
     );    
 });
 
-                      $(function() {
+$(function() {
     // Create the close button
     var closebtn = $('<button/>', {
-      type:"button",
-      text: 'x',
-      id: 'close-preview',
-      style: 'font-size: initial;',
+        type:"button",
+        text: 'x',
+        id: 'close-preview',
+        style: 'font-size: initial;',
     });
     closebtn.attr("class","close pull-right");
     // Set the popover default content
     $('.image-preview').popover({
-      trigger:'manual',
-      html:true,
-      title: "<strong>Preview</strong>"+$(closebtn)[0].outerHTML,
-      content: "There's no image",
-      placement:'bottom'
+        trigger:'manual',
+        html:true,
+        title: "<strong>Preview</strong>"+$(closebtn)[0].outerHTML,
+        content: "There's no image",
+        placement:'bottom'
     });
     // Clear event
     $('.image-preview-clear').click(function(){
-      $('.image-preview').attr("data-content","").popover('hide');
-      $('.image-preview-filename').val("");
-      $('.image-preview-clear').hide();
-      $('.image-preview-input input:file').val("");
-      $(".image-preview-input-title").text("Browse"); 
+        $('.image-preview').attr("data-content","").popover('hide');
+        $('.image-preview-filename').val("");
+        $('.image-preview-clear').hide();
+        $('.image-preview-input input:file').val("");
+        $(".image-preview-input-title").text("Browse"); 
     }); 
     // Create the preview image
     $(".image-preview-input input:file").change(function (){     
-      var img = $('<img/>', {
-        id: 'dynamic',
-        width:250,
-        height:200
-      });      
-      var file = this.files[0];
-      var reader = new FileReader();
+        var img = $('<img/>', {
+            id: 'dynamic',
+            width:250,
+            height:200
+        });      
+        var file = this.files[0];
+        var reader = new FileReader();
         // Set preview image into the popover data-content
         reader.onload = function (e) {
-          $(".image-preview-input-title").text("Change");
-          $(".image-preview-clear").show();
-          $(".image-preview-filename").val(file.name);            
-          img.attr('src', e.target.result);
-          $(".image-preview").attr("data-content",$(img)[0].outerHTML).popover("show");
+            $(".image-preview-input-title").text("Change");
+            $(".image-preview-clear").show();
+            $(".image-preview-filename").val(file.name);            
+            img.attr('src', e.target.result);
+            $(".image-preview").attr("data-content",$(img)[0].outerHTML).popover("show");
         }        
         reader.readAsDataURL(file);
-      });  
-  });
-</script>
-
-
-                    
+    });  
+});
+                    </script>
