@@ -11,8 +11,10 @@ module.exports = function (app) {
     app.post('/api/companies/signin', companyController.signin)
     app.post('/api/companies/delete', companyController.deleteD)
     app.get('/api/companies/', companyController.getAll)
-    app.get('api/offers/' , offerController.getAll)
+    app.get('/api/offers/' , offerController.getAll)
     app.post('/api/updateOffer',offerController.updateOffer);
+    // app.post('/api/getoffer',offerController.getOffer);
+    app.post('/api/deleteoffer', offerController.deleteOffer);
     app.post('/api/offers/addoffer' , offerController.addOffer)
 app.get('/auth/facebook', passport.authenticate('facebook'));
 app.get('/auth/facebook/callback',

@@ -19,6 +19,15 @@ module.exports = {
         }
       })
   },
+  getOffer : function (req, res) {
+    Offer.find({_id : req.params.id}).exec(function (err, offer) {
+      if (err) {
+        res.status(500).send(err);
+      }else{
+        res.json(offer);
+      }
+    })
+  },
   getAll: function(req,res){
     Offer.find().exec(function(err,allOffers) {
       if(err){
@@ -30,19 +39,27 @@ module.exports = {
   },
   updateOffer:function(req,res){
         Offer.findById(req.user._id,function (error, offer) {
- 				console.log(req.body)
 	 			if(!offer){
 	 				console.log("xxxxx")
-	 				res.status(500).json({error:'Offer already exist!'});
+	 				res.status(500).send(error);
 	 			}else{
-	 		    Offer.update(offer,req.body,function(err,newoffer){
+	 		    Offer.update({id:req.body._id},req.body,function(err,newoffer){
 	 			   if(err){
 				      res.status(500).send('err');
 			        }else{
 				     res.status(200).send(newoffer);
 			       }
-               })
+          })
 	 	    }
 	    })
 	},
+  deleteOffer:function(req,res){
+      Offer.remove({_id:req.body.id},function(err,ok){
+        if(err){
+            res.status(500).send('err');
+        }else{
+           res.status(200).send('deleted');
+        }
+      })
+  }
 }
