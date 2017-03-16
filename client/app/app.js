@@ -2,6 +2,7 @@ angular.module('offers', [
   'offers.auth',
   'offers.services',
   'offers.authCom',
+  'addOffer',
   'ngRoute'
 ])
 
@@ -26,6 +27,14 @@ angular.module('offers', [
     .when('/signinCom', {
       templateUrl: 'app/account/companyAuth/signinCom.html',
       controller: 'comAuthController'
+    })
+    .when('/addOffer', {
+      templateUrl: 'app/account/addOffer/addOffer.html',
+      controller: 'addOfferContr'
+    })
+    .when('/showOffer', {
+      templateUrl: 'app/account/showOffer/showOffer.html',
+      controller: 'addOfferContr'
     })
 
     .otherwise({redirectTo:'/'});

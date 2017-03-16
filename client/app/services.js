@@ -95,3 +95,43 @@ angular.module('offers.services', [])
     signout: signout
   };
 })
+.factory('Offer',function ($http, $location) {
+
+  var insert = function (offer) {
+    return $http({
+      method : 'POST',
+      url : '/api/offers/addoffer',
+      data : offer
+    }).then(function (resp) {
+      return resp.data
+    })
+  }
+
+  var getAll = function () {
+    return $http({
+      method : 'GET',
+      url : '/api/offers/'
+    }).then(function (resp) {
+      console.log(resp.data)
+      return resp.data
+    })
+  }
+
+ //// edit service
+  var edit=function(service){
+     return $http({
+      method : 'POST',
+      url : '/api/updateOffer',
+      data : service
+    }).then(function (resp) {
+      return resp.data
+    })
+  }
+  
+  return {
+    insert : insert,
+    getAll : getAll,
+    edit : edit
+   
+  }
+})

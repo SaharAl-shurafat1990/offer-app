@@ -7,36 +7,6 @@
 	
 </head>
 <body class="m">
-<!-- <div>
-	<h1 class="h" >City Offers</h1>
-</div>
-<div id="custom-bootstrap-menu" class="navbar navbar-default " role="navigation">
-		<div class="container">
-			<div class="navbar-header"><a class="navbar-brand" href="#/main">Home </a>
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-				</button>
-			</div>
-			<div class="collapse navbar-collapse navbar-menubuilder">
-				<ul class="nav navbar-nav navbar-left">
-					<select onChange="window.location.href=this.value">
-    	<option value="#/signin">Signin as User</option>
-    	<option value="#/signinCom">Signin as Company</option>
-		</select>
-		<select onChange="window.location.href=this.value">
-    	<option value="#/signup">Signup as User</option>
-    	<option value="#/signupCom">Signup as Company</option>
-		</select>
-          
-          <a href="#/signout">Sign out</a>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li ><a href="" id="UserName"></a></li>
-				</ul>
-
-			</div>
-			<div> </div>
-		</div>
-	</div> -->
 	<header>
             <div class="container header inner">
             <nav class="navbar">
@@ -47,15 +17,25 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>                        
                   </button>
-                  <a class="navbar-brand" href="#">City Offers</a>
+                  <a class="navbar-brand" href="#/showOffer">City Offers</a>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                   <ul class="nav navbar-nav navbar-right masthead-nav">
-                    <li><a href="#/signin"> Sign in as User</a></li>
-                    <li><a href="#/signinCom"> Sign in as Company</a></li>
-                    <li><a href="#/signup">Sign up as User</a></li>
-                    <li><a href="#/signupCom"> Sign in as Company</a></li>
-                    <li><a href="#/signout"> Sign Out</a></li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="navColor">Offers <span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">Restaurants</a></li>
+                        <li><a href="#">Clothes</a></li>
+                        <li><a href="#">Electronics</a></li>
+                      </ul>
+                    </li>
+                     <li><a href="#"> About us</a></li>
+                    <li> <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Search</button>
+      </form></li>
                   </ul>
                 </div>
               </div>
@@ -65,10 +45,11 @@
         </header>
         <div id="mySidenav" class="sidenav">
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-          <a href="#">About</a>
-          <a href="#">Services</a>
-          <a href="#">Clients</a>
-          <a href="#">Contact</a>
+          <a href="#/signinCom">Sign in as Company</a>
+          <a href="#/signin">Sign in as User</a>
+          <a href="#/signupCom">Sign up as Company</a>
+          <a href="#/signup">Sign up as User</a>
+          <a href="#/signout">Sign Out</a>
         </div>
 
         <span style="font-size:30px;cursor:pointer;float:right;color:#fff;position:absolute;top:5%;right: 10px;" onclick="openNav()">☰</span>
@@ -119,6 +100,7 @@ $(document).ready( function() {
  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
 <script src="app/account/userAuth/auth.js"></script>
 <script src="app/account/companyAuth/authCom.js"></script>
+<script src="app/account/addOffer/addOffer.js"></script>
 <script src="app/services.js"></script>
 <script src="app/app.js"></script>
 </body>
