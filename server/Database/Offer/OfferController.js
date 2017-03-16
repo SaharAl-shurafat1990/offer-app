@@ -52,15 +52,15 @@ module.exports = {
        res.status(200).send(newoffer);
        }
     })
-	}
-  // deleteOffer:function(req,res){
-  //     Offer.findById({_id:req.params._id},function(err,ok){
-  //       console.log(req.body._id)
-  //       if(err){
-  //           res.status(500).send('err');
-  //       }else{
-  //          res.status(200).send(ok);
-  //       }
-  //     })
-  // }
+	},
+  deleteOffer:function(req,res){
+      Offer.findOneAndRemove({_id:req.params.id},function(err,ok){
+        console.log(req.params.id)
+        if(err){
+            res.status(500).send(err);
+        }else{
+           res.status(200).send(ok);
+        }
+      })
+  }
 }

@@ -14,7 +14,7 @@ module.exports = function (app) {
     app.get('/api/offers/' , offerController.getAll)
     app.put('/api/updateOffer/:id',offerController.updateOffer);
     // app.post('/api/getoffer',offerController.getOffer);
-    // app.delete('/api/deleteoffer/:id', offerController.deleteOffer);
+    app.delete('/api/deleteoffer/:id', offerController.deleteOffer);
     app.post('/api/offers/addoffer' , offerController.addOffer)
 app.get('/auth/facebook', passport.authenticate('facebook'));
 app.get('/auth/facebook/callback',
