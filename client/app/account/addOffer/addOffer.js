@@ -14,7 +14,7 @@
   if (file) {
     reader.readAsDataURL(file);
   }
-   
+
   }
 	  $scope.addOffer = function () {
       console.log($scope.data)
@@ -23,7 +23,7 @@
   Offer.insert($scope.data)
     .then(function (offer) {
         console.log(offer)
-        
+
         console.log($scope.data)
         $location.path('/');
       })
@@ -32,7 +32,7 @@
       });
 
       }, 1000);
-  	
+
   }
   $scope.all={};
   $scope.getAllOffers = function(){
