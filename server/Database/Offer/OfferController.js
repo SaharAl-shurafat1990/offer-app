@@ -63,12 +63,14 @@ module.exports = {
     })
 	},
   deleteOffer:function(req,res){
-      Offer.remove({_id:req.body.id},function(err,ok){
+      Offer.findOneAndRemove({_id:req.params.id},function(err,ok){
+        console.log(req.params.id)
         if(err){
-            res.status(500).send('err');
+            res.status(500).send(err);
         }else{
-           res.status(200).send('deleted');
+           res.status(200).send(ok);
+
         }
       })
-  }
+    }
 }
