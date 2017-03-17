@@ -1,40 +1,5 @@
 var Offer = require('./OfferModel.js')
-
-module.exports = {
-  addOffer: function(req,res){
-
-    // console.log(req.body)
-
-
-      var newOffer = new Offer({
-        description : req.body.description,
-        location : req.body.location,
-
-        date : req.body.date,
-        img: req.body.img
-
-      })
-      Offer.create(newOffer, function (err, newOffer) {
-        if (err) {
-          // console.log(err, "HELLO")
-          res.status(500).send(err);
-        }else{
-          res.status(201).json(newOffer);
-        }
-      })
-  },
-
-
-  getOffer : function (req, res) {
-    Offer.find({_id : req.params.id}).exec(function (err, offer) {
-      if (err) {
-        res.status(500).send(err);
-      }else{
-        res.json(offer);
-      }
-    })
-  },
-
+module.exports.handleOffers={
   getAll: function(req,res){
     Offer.find().exec(function(err,allOffers) {
       if(err){
@@ -45,32 +10,45 @@ module.exports = {
       }
     })
   },
-  updateOffer:function(req,res){
 
-    var newoffer = {
-      description:req.body.description,
-      location:req.body.location,
-      date:req.body.date
-    }
-    Offer.findOneAndUpdate({_id:req.params.id},req.body,function(err,newoffer){
-      console.log(req.body)
-      console.log(newoffer)
-     if(err){
-        res.status(500).send(err);
-        }else{
-       res.status(200).send(newoffer);
-       }
+  addOffer:function(req,res){
+    
+    var location=req.body.location;
+    var description=req.body.description;
+    var date=req.body.date;
+    var img=req.body.img;
+    var id=req.body.userId;
+     
+    Offer.create({
+    location:location,
+    description:description,
+    date:date,
+    img:img,
+    c_id:id,
+
+    },function(err,ok){
+      if(err){
+        res.json(err);
+      }
+      else{
+        console.log(ok)
+        res.json("add succsees full!!")
+      }
+
     })
-	},
-  deleteOffer:function(req,res){
-      Offer.findOneAndRemove({_id:req.params.id},function(err,ok){
-        console.log(req.params.id)
-        if(err){
-            res.status(500).send(err);
-        }else{
-           res.status(200).send(ok);
-
-        }
-      })
+  },
+  
+deleteOffer:function(req,res){
+  var id=req.body.id;
+  console.log(id);
+    Offer.remove({_id:id},function(err,ok){
+    if(err){
+      res.json(err)
     }
+    else{
+      res.json(ok)
+    }
+  })
 }
+}
+

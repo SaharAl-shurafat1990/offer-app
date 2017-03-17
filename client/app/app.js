@@ -1,30 +1,23 @@
 angular.module('offers', [
-  'offers.auth',
   'offers.services',
   'offers.authCom',
   'addOffer',
+  'app.profile',
   'ngRoute'
 ])
 
 .config(function ($routeProvider) {
   $routeProvider
-    .when('/signin', {
-      templateUrl: 'app/account/userAuth/signin.html',
-      controller: 'AuthController'
+    
+    .when('/signout', {
+      templateUrl: 'app/account/companyAuth/signout.html',
+      controller: 'comAuthController'
     })
     .when('/signup', {
-      templateUrl: 'app/account/userAuth/signup.html',
-      controller: 'AuthController'
-    })
-    .when('/signout', {
-      templateUrl: 'app/account/userAuth/signout.html',
-      controller: 'AuthController'
-    })
-    .when('/signupCom', {
       templateUrl: 'app/account/companyAuth/signupCom.html',
       controller: 'comAuthController'
     })
-    .when('/signinCom', {
+    .when('/signin', {
       templateUrl: 'app/account/companyAuth/signinCom.html',
       controller: 'comAuthController'
     })
@@ -36,11 +29,14 @@ angular.module('offers', [
       templateUrl: 'app/account/showOffer/showOffer.html',
       controller: 'addOfferContr'
     })
+    .when('/profile',{
+      templateUrl:'app/account/profile/profile.html',
+      controller:'ProfileController'
+      })          
 
-    .otherwise({redirectTo:'/'});
+    .otherwise({redirectTo:'/'})
+    })
 
-
-})
 window.fbAsyncInit = function() {
    FB.init({
      appId      : 'your-app-id',

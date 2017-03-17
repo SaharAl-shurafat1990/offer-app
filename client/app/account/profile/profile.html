@@ -1,3 +1,30 @@
-<div class="container">
+<div class="panel panel-default" style="background-color: grey" ng-init="getProfile()">
+<h1 style="color:black">Your Offers</h1>
+ <button class="btn btn-info btn-lg"><a href="#/addOffer">add New Offer</a></button>
+ <div class="panel panel-danger">
+  <div class="panel-heading" style="background-color:black"> 
+   
+  </div>
   
+    <div class="panel-body">
+      <div class="row" >
+      <div ng-repeat="offer in profile">
+        <div class="col-md-6">
+         <div class="col-md-6">
+        <img class="thumbnail" src="{{offer.img}}" style="width: 180px;height: 280px">
+        </div>
+        <div class="col-md-6">
+          <h2 style="font-weight: bold;">{{offer.description}}</h2>
+          <p><span style="color: #380001"> location </span> {{offer.location}}</p>
+          <p><input type="submit" class="btn btn-danger" role="button"  value="Delete"  ng-click="Confirmdelete(offer._id)"></p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+</div>
+</div>
+</div>
+
+      
+
