@@ -1,23 +1,34 @@
 angular.module('offers.authCom', [])
 
 .controller('comAuthController', function ($scope, $window, $location, $rootScope, comAuth) {
-   $scope.company = {};
-     if($window.localStorage.getItem("com.offers")) {
+  $scope.user = {};
+
+  if($window.localStorage.getItem('com.offer')) {
         $location.path('/');
-      } 
+      }
 
   $scope.signin = function () {
-    var passFlag = $scope.company.password;
-    var userFlag = $scope.company.email;
+    var passFlag = $scope.user.password;
+    var userFlag = $scope.user.username;
     if(userFlag && passFlag){
-      comAuth.signin($scope.company)
+      comAuth.signin($scope.user)
       .then(function (data) {
-        console.log(data)
-        $window.localStorage.setItem('com.offers', data.token);
-        $window.localStorage.setItem('user.offers', $scope.company.username);
-        $location.path('/');
-        
-        
+        console.log(data);
+          
+       
+        $window.localStorage.setItem('com.offer', data.token);
+        $window.localStorage.setItem('user.offer', $scope.user.username);
+        $window.localStorage.setItem('userId',data['user']['_id']);
+        console.log(data['user']['_id']);
+        if($window.localStorage.setItem('userId',data['user']['_id'])!==null){
+           $location.path('/profile');
+       $window.location.reload();
+        }else{
+         //$window.location.reload();
+         $location.path('/');
+        }
+       
+       
       })
       .catch(function (error) {
         console.log(error);
@@ -35,20 +46,22 @@ angular.module('offers.authCom', [])
 
 
   $scope.signup = function () {
-    
-    var passFlag = $scope.company.password;
-    var userFlag = $scope.company.email;
+    var passFlag = $scope.user.password;
+    var userFlag = $scope.user.username;
     if(userFlag && passFlag){
-      comAuth.signup($scope.company)
+      comAuth.signup($scope.user)
       .then(function (token) {
-        $window.localStorage.setItem('com.offers', token);
-        $window.localStorage.setItem('user.offers', $scope.company.email);
-        console.log($scope.company)
-        $location.path('/');
+        //console.log(token)
+        
+        
+       
+    $location.path('/signin');
+    
       })
       .catch(function (error) {
         console.error(error);
       });
+    
     } else {
       if(!userFlag && !passFlag){
        $scope.msg = "Wrong input for user or Password"
@@ -63,5 +76,5 @@ angular.module('offers.authCom', [])
 $scope.signout = function(){
   comAuth.signout();
 }
-});
-  
+
+})
