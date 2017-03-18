@@ -36,6 +36,10 @@ angular.module('offers', [
       templateUrl: 'app/account/showOffer/showOffer.html',
       controller: 'addOfferContr'
     })
+    .when('/verification', {
+      templateUrl: 'app/account/verification/verification.html',
+      controller: 'verificationController'
+    })
 
     .otherwise({redirectTo:'/'});
 

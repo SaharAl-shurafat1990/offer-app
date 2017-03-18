@@ -11,7 +11,9 @@ module.exports = function (app) {
     app.get('/api/users/', userController.getAll)
     app.post('/api/companies/signup', companyController.signup)
     app.post('/api/companies/signin', companyController.signin)
+    app.post('/api/sendemail', companyController.sendemail);
     app.post('/api/companies/delete', companyController.deleteD)
+    app.post('/api/deactive', companyController.deactive);
     app.get('/api/companies/', companyController.getAll)
     app.get('/api/offers/' , offerController.getAll)
     app.put('/api/updateOffer/:id',offerController.updateOffer);

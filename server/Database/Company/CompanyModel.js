@@ -20,6 +20,9 @@ var CompanySchema = new mongoose.Schema({
     required : true
     // unique : true
   },
+  active: {
+    type: Boolean
+  },
   email : {
     type : String,
     required : true
@@ -35,6 +38,11 @@ var CompanySchema = new mongoose.Schema({
     type : String,
     required : true
   },
+  masseges: [{user: String,
+	            userEmail: String,
+		        place: String,
+		        phon: String,
+		        msg: String}],
   salt : String
 })
 

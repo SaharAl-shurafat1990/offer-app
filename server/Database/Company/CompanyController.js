@@ -1,6 +1,7 @@
 var Q = require('q')
 var jwt = require('jwt-simple')
 var Company = require('./CompanyModel.js')
+var nodemailer = require('nodemailer');
 
 
 // Promisify a few mongoose methods with the `q` promise library
@@ -58,6 +59,7 @@ module.exports = {
     var companyOwner = req.body.companyOwner;
     var companyName = req.body.companyName;
     var phoneNumber = req.body.phoneNumber;
+    var active = ture;
     var email = req.body.email;
     var location = req.body.location;
     //var companyType = req.body.companyType;
@@ -74,6 +76,7 @@ module.exports = {
             companyOwner: companyOwner,
             companyName: companyName,
             phoneNumber: phoneNumber,
+            active: active,
             email: email,
             location: location,
            // companyType: companyType,
@@ -117,5 +120,44 @@ module.exports = {
           next(error)
         })
     }
+  },
+  sendemail: function(req, res) {
+    var transporter = nodemailer.createTransport({
+      service: 'Gmail',
+      auth: {
+        user: 'offerapp1@gmail.com',
+        pass: 'msmRBK!@12'
+      }
+    });
+    var mailOptions = {
+      from: 'offerapp1@gmail.com',
+      to: req.body.email,
+      subject: 'From ' + req.body.name,
+      text: req.body.msg
+
+    };
+
+    transporter.sendMail(mailOptions, function(error, info) {
+      if (error) {
+        res.json({Message: 'opss, some thing went wrong please try later'});
+      } else {
+        res.json({Message: 'your e-mail has been sent successfully'});
+      }
+    });
+  },
+  deactive: function(req, res) {
+    TradeWorker.findById(req.user._id, function(err, company) {
+      if (err) {
+        res.status(500).send({error: 'faild to find company!'});
+      } else {
+        TradeWorker.update(company, {active: false}, function(err, newcompany) {
+          if (err) {
+            res.status(500).send({error: 'somthing went wrong, please try again'});
+          } else {
+            res.status(201).send(newcompany);
+          }
+        });
+      }
+    });
   }
 }
