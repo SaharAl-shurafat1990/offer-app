@@ -9,15 +9,19 @@ var CompanySchema = new mongoose.Schema({
     type : String,
     required : true
   },
+  active: {
+    type: Boolean
+  },
   email : {
     type : String,
   },
-  
+
   password : {
     type : String,
     required : true
   },
-  salt : String
+  salt : String,
+  code: Number
 })
 
 CompanySchema.methods.comparePasswords = function (candidatePassword) {

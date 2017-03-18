@@ -9,7 +9,6 @@
 
   $scope.upload=function(element){
    var file=element[0];
-   console.log(file)
     var reader = new FileReader();
    reader.addEventListener("load", function () {
     $scope.data.img = reader.result;
@@ -21,18 +20,15 @@
 
   }
 	  $scope.addOffer = function () {
-     // console.log($scope.data)
+
      setTimeout(function(){
 
   Offer.insert($scope.data)
   $location.path('/profile')
     .then(function (offer) {
-        //console.log(offer)
 
-       // console.log($scope.data)
       })
       .catch(function (error) {
-        console.log(error);
       });
 
       }, 1000);
@@ -42,9 +38,9 @@
   $scope.getAllOffers = function(){
     Offer.getAll()
     .then(function (data) {
-     // console.log(data)
+
      return $scope.all = data;
-       //console.log(data)
+
     })
     .catch(function (error) {
         console.log(error);
