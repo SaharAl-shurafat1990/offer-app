@@ -19,7 +19,7 @@ angular.module('offers.authCom', [])
         $window.localStorage.setItem('com.offer', data.token);
         $window.localStorage.setItem('user.offer', $scope.user.username);
         $window.localStorage.setItem('userId',data['user']['_id']);
-        console.log(data['user']['_id']);
+        //console.log(data['user']['_id']);
         if($window.localStorage.setItem('userId',data['user']['_id'])!==null){
            $location.path('/profile');
        $window.location.reload();
