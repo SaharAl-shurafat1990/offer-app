@@ -7,9 +7,7 @@
     "start": "nodemon server/server.js ",
     "lint": "eslint server",
     "karma": "karma start karma.conf.js",
-
     "test": "mocha server/Database/Company/spec.js server/Database/User/spec.js server/Database/Offer/spec.js "
-
   },
   "repository": {
     "type": "git",
@@ -23,12 +21,13 @@
   "homepage": "https://github.com/MohannadBakkar/2017-2-thesis#readme",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
-    "bytes": "^2.4.0",
     "body-parser": "^1.4.3",
+    "bytes": "^2.4.0",
     "express": "^4.15.0",
     "jwt-simple": "^0.5.0",
     "mongoose": "^4.8.5",
     "morgan": "^1.1.1",
+    "nodemailer": "^3.1.7",
     "nodemon": "^1.11.0",
     "passport": "^0.3.2",
     "passport-facebook": "^2.1.1",

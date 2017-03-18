@@ -13,9 +13,9 @@ angular.module('offers.authCom', [])
     if(userFlag && passFlag){
       comAuth.signin($scope.user)
       .then(function (data) {
-        console.log(data);
-          
-       
+        // console.log(data);
+
+
         $window.localStorage.setItem('com.offer', data.token);
         $window.localStorage.setItem('user.offer', $scope.user.username);
         $window.localStorage.setItem('userId',data['user']['_id']);
@@ -27,8 +27,8 @@ angular.module('offers.authCom', [])
          //$window.location.reload();
          $location.path('/');
         }
-       
-       
+
+
       })
       .catch(function (error) {
         console.log(error);
@@ -46,22 +46,23 @@ angular.module('offers.authCom', [])
 
 
   $scope.signup = function () {
+    console.log($scope.user)
     var passFlag = $scope.user.password;
     var userFlag = $scope.user.username;
     if(userFlag && passFlag){
       comAuth.signup($scope.user)
-      .then(function (token) {
-        //console.log(token)
-        
-        
-       
-    $location.path('/signin');
-    
+      .then(function (data) {
+        console.log(data)
+
+
+
+    $location.path('/verification');
+
       })
       .catch(function (error) {
         console.error(error);
       });
-    
+
     } else {
       if(!userFlag && !passFlag){
        $scope.msg = "Wrong input for user or Password"
