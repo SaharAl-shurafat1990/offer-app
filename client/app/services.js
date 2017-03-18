@@ -14,7 +14,7 @@ angular.module('offers.services', [])
       data: user
     })
     .then(function (resp) {
-      console.log(user)
+      //console.log(user)
       return resp.data;
     });
   };
@@ -35,7 +35,6 @@ angular.module('offers.services', [])
       data: user
     })
     .then(function (resp) {
-      // console.log(resp.data)
 
       return resp.data;
     });
@@ -75,6 +74,7 @@ angular.module('offers.services', [])
       method : 'GET',
       url : '/api/offers/'
     }).then(function (resp) {
+
       return resp.data
     })
   }
