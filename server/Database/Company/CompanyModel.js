@@ -15,17 +15,13 @@ var CompanySchema = new mongoose.Schema({
   email : {
     type : String,
   },
-  
+
   password : {
     type : String,
     required : true
   },
-  masseges: [{user: String,
-	            userEmail: String,
-		        place: String,
-		        phon: String,
-		        msg: String}],
-  salt : String
+  salt : String,
+  code: Number
 })
 
 CompanySchema.methods.comparePasswords = function (candidatePassword) {

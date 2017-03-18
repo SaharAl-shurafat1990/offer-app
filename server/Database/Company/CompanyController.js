@@ -31,8 +31,15 @@ module.exports.handleUsers = {
   },
   // add user to data base
   signup: function(req, res) {
-    var username = req.body.username
+    var randomNumber = function(){
+      return Math.floor(Math.random() * 100000)
+    }
+    var codeNumber = randomNumber()
+    var username = req.body.username;
+    var email = req.body.email
     var password = req.body.password;
+    var code =  codeNumber;
+    console.log(req.body)
     // check to see if user already exists
     Company.findOne({username: username})
       .exec(function (err, user) {
@@ -43,44 +50,60 @@ module.exports.handleUsers = {
 
           return Company.create({
             username: username,
-            password: password
+            email: email,
+            password: password,
+            code: code
           }, function (err, newUser) {
               // create token to send back for auth
               if(err){
                 res.json(err);
               } else {
                 var token = jwt.encode(user, 'secret');
-                res.json({token: token});
+                res.json({token: token, code:code});
               }
           });
         }
+      })
+      var transporter = nodemailer.createTransport({
+          service: 'Gmail',
+          auth: {
+            user: 'offerapp1@gmail.com',
+            pass: 'msmRBK!@12'
+          }
+        });
+        // $window.localStorage.code = code;
+        var mailOptions = {
+          from: 'offerapp1@gmail.com',
+          to: req.body.email,
+          subject: 'From' + ' ' + req.body.username,
+          text: 'Welcome to Our company, now you can post any offer that you have in your Company, and Your code is ' + code + '.!'
+
+        };
+
+        transporter.sendMail(mailOptions, function(error, info) {
+          if (error) {
+            res.json({Message: 'opss, some thing went wrong please try later'});
+          } else {
+            res.json({Message: 'your e-mail has been sent successfully'});
+          }
+        });
+  },
+  checkcode : function(req,res){
+    var code = req.params.code;
+    Company.findOne({code:code})
+      .then(function (code) {
+
+    //  console.log(code)
+        if (!code) {
+
+          res.status(404).json("code not found")
+        } else {
+        res.json({code : code});
+        }
       });
-  },
-  sendemail: function(req, res) {
-    var transporter = nodemailer.createTransport({
-      service: 'Gmail',
-      auth: {
-        user: 'offerapp1@gmail.com',
-        pass: 'msmRBK!@12'
-      }
-    });
-    var mailOptions = {
-      from: 'offerapp1@gmail.com',
-      to: req.body.email,
-      subject: 'From ' + req.body.name,
-      text: req.body.msg
 
-    };
-
-    transporter.sendMail(mailOptions, function(error, info) {
-      if (error) {
-        res.json({Message: 'opss, some thing went wrong please try later'});
-      } else {
-        res.json({Message: 'your e-mail has been sent successfully'});
-      }
-    });
   },
-  // get user in data base
+    // get user in data base
   getUsers: function(req, res) {
     Company.find({}, function(err, users){
       if(err){

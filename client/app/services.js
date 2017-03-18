@@ -18,6 +18,15 @@ angular.module('offers.services', [])
       return resp.data;
     });
   };
+  var checkcode = function(code){
+    return $http({
+      method: 'GET',
+      url:'/api/companies/checkcode/' + code.code,
+    })
+    .then(function(resp){
+      return resp.data
+    })
+  }
 
   var signup = function (user) {
     return $http({
@@ -26,6 +35,8 @@ angular.module('offers.services', [])
       data: user
     })
     .then(function (resp) {
+      // console.log(resp.data)
+
       return resp.data;
     });
   };
@@ -43,7 +54,8 @@ angular.module('offers.services', [])
   return {
     signin: signin,
     signup: signup,
-    signout: signout
+    signout: signout,
+    checkcode:checkcode
   };
 })
 .factory('Offer',function ($http, $location) {
@@ -68,7 +80,7 @@ angular.module('offers.services', [])
     })
   }
 
- 
+
   var deleteOffer=function (deleteid) {
      return $http({
       method : 'POST',
@@ -82,6 +94,6 @@ angular.module('offers.services', [])
     insert : insert,
     getAll : getAll,
     deleteOffer:deleteOffer
-   
+
   }
 })

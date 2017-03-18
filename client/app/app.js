@@ -1,4 +1,5 @@
 angular.module('offers', [
+  'offers.verification',
   'offers.services',
   'offers.authCom',
   'addOffer',
@@ -36,7 +37,7 @@ angular.module('offers', [
     .when('/profile',{
       templateUrl:'app/account/profile/profile.html',
       controller:'ProfileController'
-      })          
+      })
 
     .otherwise({redirectTo:'/'})
     })
