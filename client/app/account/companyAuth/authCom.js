@@ -13,7 +13,7 @@ angular.module('offers.authCom', [])
     if(userFlag && passFlag){
       comAuth.signin($scope.user)
       .then(function (data) {
-        console.log(data);
+        //console.log(data);
           
        
         $window.localStorage.setItem('com.offer', data.token);
@@ -51,7 +51,8 @@ angular.module('offers.authCom', [])
     if(userFlag && passFlag){
       comAuth.signup($scope.user)
       .then(function (token) {
-        //console.log(token)
+      
+       // console.log(token)
         
         
        

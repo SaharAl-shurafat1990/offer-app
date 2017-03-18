@@ -21,15 +21,15 @@
 
   }
 	  $scope.addOffer = function () {
-      console.log($scope.data)
+     // console.log($scope.data)
      setTimeout(function(){
 
   Offer.insert($scope.data)
   $location.path('/profile')
     .then(function (offer) {
-        console.log(offer)
+        //console.log(offer)
 
-        console.log($scope.data)
+       // console.log($scope.data)
       })
       .catch(function (error) {
         console.log(error);
@@ -42,9 +42,9 @@
   $scope.getAllOffers = function(){
     Offer.getAll()
     .then(function (data) {
-      console.log(data)
+     // console.log(data)
      return $scope.all = data;
-       console.log(data)
+       //console.log(data)
     })
     .catch(function (error) {
         console.log(error);
