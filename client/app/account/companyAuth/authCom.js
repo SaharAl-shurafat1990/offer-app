@@ -46,13 +46,11 @@ angular.module('offers.authCom', [])
 
 
   $scope.signup = function () {
-    console.log($scope.user)
     var passFlag = $scope.user.password;
     var userFlag = $scope.user.username;
     if(userFlag && passFlag){
       comAuth.signup($scope.user)
       .then(function (data) {
-        console.log(data)
 
 
 

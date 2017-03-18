@@ -75,7 +75,6 @@ angular.module('offers.services', [])
       method : 'GET',
       url : '/api/offers/'
     }).then(function (resp) {
-      console.log(resp.data)
       return resp.data
     })
   }

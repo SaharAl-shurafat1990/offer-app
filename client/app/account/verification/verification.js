@@ -5,8 +5,7 @@ angular.module('offers.verification', [])
     comAuth.checkcode($scope.user)
     .then(function (data) {
       var code = data.code
-      console.log(data)
-  $location.path('/profile');
+  $location.path('/signin');
 
     })
     .catch(function (error) {
