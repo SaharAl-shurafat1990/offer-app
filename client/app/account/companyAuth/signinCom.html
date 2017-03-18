@@ -25,14 +25,14 @@
       <section class="login-form">
         <form ng-submit='signin()' role="login">
           <img src="http://i.imgur.com/RcmcLv4.png" class="img-responsive" alt="" />
-          <input type="email" name="email" placeholder="Email" required class="form-control input-lg" ng-model='company.email' />
-          <input type="password" class="form-control input-lg" id="password" placeholder="Password" required="" ng-model='company.password'/>
+          <input type="text" name="email" placeholder="User name" required class="form-control input-lg" ng-model='user.username' />
+          <input type="password" class="form-control input-lg" id="password" placeholder="Password" required="" ng-model='user.password'/>
           <div class="pwstrength_viewport_progress"></div>
           <button type="submit" name="go" class="btn btn-lg btn-primary btn-block">Sign in</button>
           <div>
           <h4><strong>Don't you have account?</strong></h4>
           <br>
-            <a href="#/signupCom">Create account</a>
+            <a href="#/signup">Create account</a>
           </div>
         </form>
         <div class="form-links">

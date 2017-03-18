@@ -15,9 +15,9 @@ var OfferSchema = new mongoose.Schema({
       type : String,
       required : true
     },
+    c_id:String,
      img:String
 
-    
       })
 
   module.exports = mongoose.model('Offer', OfferSchema)

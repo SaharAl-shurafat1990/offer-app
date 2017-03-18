@@ -2,6 +2,10 @@
 
 .controller('addOfferContr',function ($scope,Offer,$location,$window){
 	$scope.data={};
+  if(window.localStorage.getItem('userId')){
+     var userID = window.localStorage.getItem('userId');
+     $scope.data.userId=userID;
+   }
 
   $scope.upload=function(element){
    var file=element[0];
@@ -21,11 +25,11 @@
      setTimeout(function(){
 
   Offer.insert($scope.data)
+  $location.path('/profile')
     .then(function (offer) {
         console.log(offer)
 
         console.log($scope.data)
-        $location.path('/');
       })
       .catch(function (error) {
         console.log(error);

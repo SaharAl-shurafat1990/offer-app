@@ -5,35 +5,17 @@ var salt = 10
 
 
 var CompanySchema = new mongoose.Schema({
-  companyOwner: {
-    type: String,
-    required: true
-    // unique: true
-  },
-  companyName : {
+  username: {
     type : String,
     required : true
-    // unique : true
-  },
-  phoneNumber : {
-    type : Number,
-    required : true
-    // unique : true
   },
   active: {
     type: Boolean
   },
   email : {
     type : String,
-    required : true
-    // unique : true
   },
-  location : String,
-  //companyType : String,
-
-  description: {
-    type: String
-  },
+  
   password : {
     type : String,
     required : true
