@@ -32,7 +32,8 @@ http://www.bootstrapzen.com/item/135/simple-login-form-logo/
 	}
 
 .m {
-	background: url(http://cdn29.us1.fansshare.com/images/newyorkcity/new-york-city-black-and-white-wallpaper-background-wallpaper-black-and-white-871196310.jpg) repeat;
+  background:black;
+	
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -374,6 +375,15 @@ span.input-group-addon i {
   font-size: 11px;
   text-align: center;
 }
-.panel-body {
-background:   #D3D3D3;
+/*.panel-body {
+background:   #D3D3D3;*/
+}
+#map {
+  
+  position: absolute; 
+  top: 50px; 
+  bottom: 0px; 
+  left: -105px; 
+  right: 200px; 
+  z-index: 0;
 }
