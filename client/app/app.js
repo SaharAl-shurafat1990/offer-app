@@ -1,6 +1,7 @@
 angular.module('offers', [
   'offers.verification',
   'offers.services',
+  'app.main',
   'offers.authCom',
   'addOffer',
   'geolocation',
@@ -39,6 +40,10 @@ angular.module('offers', [
       templateUrl:'app/account/profile/profile.html',
       controller:'ProfileController'
       })
+    .when('/', {
+      templateUrl: 'app/account/main/main.html',
+      controller: 'MainController'
+    })
     
     .otherwise({redirectTo:'/'})
     })
