@@ -7,7 +7,7 @@
     "start": "nodemon server/server.js ",
     "lint": "eslint server",
     "karma": "karma start karma.conf.js",
-    "test": "mocha server/Database/Company/spec.js server/Database/User/spec.js server/Database/Offer/spec.js "
+    "test": "mocha server/Database/Company/spec.js server/Database/Offer/spec.js "
   },
   "repository": {
     "type": "git",
