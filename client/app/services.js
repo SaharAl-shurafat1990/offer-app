@@ -14,10 +14,19 @@ angular.module('offers.services', [])
       data: user
     })
     .then(function (resp) {
-      console.log(user)
+      //console.log(user)
       return resp.data;
     });
   };
+  var checkcode = function(code){
+    return $http({
+      method: 'GET',
+      url:'/api/companies/checkcode/' + code.code,
+    })
+    .then(function(resp){
+      return resp.data
+    })
+  }
 
   var signup = function (user) {
     return $http({
@@ -26,6 +35,7 @@ angular.module('offers.services', [])
       data: user
     })
     .then(function (resp) {
+
       return resp.data;
     });
   };
@@ -43,7 +53,8 @@ angular.module('offers.services', [])
   return {
     signin: signin,
     signup: signup,
-    signout: signout
+    signout: signout,
+    checkcode:checkcode
   };
 })
 .factory('Offer',function ($http, $location) {
@@ -63,12 +74,12 @@ angular.module('offers.services', [])
       method : 'GET',
       url : '/api/offers/'
     }).then(function (resp) {
-      console.log(resp.data)
+
       return resp.data
     })
   }
 
- 
+
   var deleteOffer=function (deleteid) {
      return $http({
       method : 'POST',
@@ -82,9 +93,10 @@ angular.module('offers.services', [])
     insert : insert,
     getAll : getAll,
     deleteOffer:deleteOffer
-   
+
   }
 })
+
 .factory('gservice', function($http,$rootScope){
 
         // Initialize Variables
@@ -239,3 +251,5 @@ google.maps.event.addDomListener(window, 'load',
 
 return googleMapService;
 });
+
+

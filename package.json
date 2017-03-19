@@ -28,6 +28,7 @@
     "method-override": "^2.3.7",
     "mongoose": "^4.8.5",
     "morgan": "^1.1.1",
+    "nodemailer": "^3.1.7",
     "nodemon": "^1.11.0",
     "passport": "^0.3.2",
     "passport-facebook": "^2.1.1",

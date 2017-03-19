@@ -1,4 +1,5 @@
 angular.module('offers', [
+  'offers.verification',
   'offers.services',
   'offers.authCom',
   'addOffer',
@@ -9,7 +10,7 @@ angular.module('offers', [
 
 .config(function ($routeProvider) {
   $routeProvider
-    
+
     .when('/signout', {
       templateUrl: 'app/account/companyAuth/signout.html',
       controller: 'comAuthController'
@@ -30,10 +31,14 @@ angular.module('offers', [
       templateUrl: 'app/account/showOffer/showOffer.html',
       controller: 'addOfferContr'
     })
+    .when('/verification', {
+      templateUrl: 'app/account/verification/verification.html',
+      controller: 'verificationController'
+    })
     .when('/profile',{
       templateUrl:'app/account/profile/profile.html',
       controller:'ProfileController'
-      })          
+      })
 
     .otherwise({redirectTo:'/'})
     })

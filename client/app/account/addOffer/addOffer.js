@@ -36,7 +36,6 @@ geolocation.getLocation().then(function(data){
 
   $scope.upload=function(element){
    var file=element[0];
-   console.log(file)
     var reader = new FileReader();
    reader.addEventListener("load", function () {
     $scope.data.img = reader.result;
@@ -60,6 +59,7 @@ $rootScope.$on("clicked", function(){
 });
 
 	  $scope.addOffer = function () {
+
       console.log($scope.data);
       var userData = {
              description: $scope.data.description,
@@ -69,17 +69,16 @@ $rootScope.$on("clicked", function(){
             htmlverified: $scope.data.htmlverified
         };
 
+
+
      setTimeout(function(){
 
   Offer.insert(userData)
   $location.path('/profile')
     .then(function (offer) {
-        console.log(offer)
 
-        console.log($scope.data)
       })
       .catch(function (error) {
-        console.log(error);
       });
 
       }, 1000);
@@ -89,9 +88,9 @@ $rootScope.$on("clicked", function(){
   $scope.getAllOffers = function(){
     Offer.getAll()
     .then(function (data) {
-      console.log(data)
+
      return $scope.all = data;
-       console.log(data)
+
     })
     .catch(function (error) {
         console.log(error);

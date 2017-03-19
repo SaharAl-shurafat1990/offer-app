@@ -9,17 +9,16 @@ angular.module('app.profile', [])
      $scope.data.userId=userID;
    }
 
-  	
- 
+
+
   $scope.getProfile = function(){
     //console.log($scope.data.userId)
     Offer.getAll()
     .then(function (data) {
-      console.log(data)
     	for (var i = 0; i < data.length; i++) {
     		if(data[i]['c_id'] === $scope.data.userId){
       	 		 $scope.profile.push(data[i]);
-      	 		console.log($scope.profile)
+
     		}
     	}
       return $scope.profile
@@ -28,22 +27,15 @@ angular.module('app.profile', [])
         console.log(error);
       });
   }
-//   $scope.openoffer=function(id){
-//     for (var i =0;i<$scope.profile.length; i++) {
-//      if($scope.profile[i]['_id']===id){
-//       $scope.oneserveice=$scope.profile[i];
-//     }
-//   }
-//   console.log( $scope.oneserveice)
-// }
+
 $scope.deleteid={};
 $scope.Confirmdelete = function (id) {
-  
+
      $scope.deleteid.id=id;
-    console.log($scope.deleteid)
+
     Offer.deleteOffer($scope.deleteid);
 
-       
+
         $window.location.reload();
       }
 })
