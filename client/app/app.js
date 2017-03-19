@@ -38,7 +38,7 @@ angular.module('offers', [
       templateUrl:'app/account/profile/profile.html',
       controller:'ProfileController'
       })
-
+    
     .otherwise({redirectTo:'/'})
     })
 
