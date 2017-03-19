@@ -3,6 +3,7 @@ angular.module('offers', [
   'offers.services',
   'offers.authCom',
   'addOffer',
+  'geolocation',
   'app.profile',
   'ngRoute'
 ])
