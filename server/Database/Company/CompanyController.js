@@ -11,7 +11,7 @@ module.exports.handleUsers = {
     Company.findOne({username: username})
       .then(function (user) {
 
-     console.log(user)
+    //  console.log(user)
         if (!user) {
 
           res.status(404).json("user not found")
@@ -39,7 +39,7 @@ module.exports.handleUsers = {
     var email = req.body.email
     var password = req.body.password;
     var code =  codeNumber;
-    console.log(req.body)
+    // console.log(req.body)
     // check to see if user already exists
     Company.findOne({username: username})
       .exec(function (err, user) {
@@ -59,7 +59,7 @@ module.exports.handleUsers = {
                 res.json(err);
               } else {
                 var token = jwt.encode(user, 'secret');
-                res.json({token: token, code:code});
+                res.status(201).json({token: token, code:code});
               }
           });
         }
@@ -82,17 +82,18 @@ module.exports.handleUsers = {
 
         transporter.sendMail(mailOptions, function(error, info) {
           if (error) {
-            res.json({Message: 'opss, some thing went wrong please try later'});
+            res.status(404).json({Message: 'opss, some thing went wrong please try later'});
           } else {
-            res.json({Message: 'your e-mail has been sent successfully'});
+            res.status(201).json({Message: 'your e-mail has been sent successfully'});
           }
         });
   },
   checkcode : function(req,res){
     var code = req.params.code;
+    // console.log(req.params, " params")
     Company.findOne({code:code})
       .then(function (code) {
-
+        // console.log(code)
     //  console.log(code)
         if (!code) {
 
