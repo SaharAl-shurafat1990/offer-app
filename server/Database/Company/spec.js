@@ -23,12 +23,8 @@ describe('Company', function () {
     request(app)
       .post('/api/companies/signup')
       .send({
-        companyOwner: 'dd',
-        companyName: 'dddddsdadgadgsadgasdgddddssssSdsd',
-        phoneNumber: '078788231',
+        username: 'ddxd',
         email: 'fatima@hotmail.com',
-        location: 'Rainbo STR',
-        companyType: 'coffe',
         password: 'fatimahamami'
       })
       .set('Accept', 'application/json')
@@ -42,6 +38,36 @@ describe('Company', function () {
         expect(resp.body).to.be.an('object')
         done()
       })
+  })
+  it('Should send mail', function (done){
+    request(app)
+      .post('/api/companies/signup')
+      .send({
+        username: 'dddddddd',
+        email: 'fatima@hotmail.com',
+        password: 'fatimahamami'
+      })
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
+      .expect(201)
+      .end(function (err, resp) {
+        // console.log(resp.body)
+        if (err) {
+          console.log(err)
+        }
+        var code = resp.body
+        // console.log(resp.body.code)
+        request(app)
+        .get('/api/companies/checkcode/' + code.code)
+        .end(function (err,resp) {
+          if(err){
+            throw new Error(err)
+          }
+        })
+        expect(resp.body.code).to.equal(code.code)
+        done()
+      })
+
   })
 
   it('Should get one company', function (done) {
