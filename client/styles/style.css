@@ -375,10 +375,10 @@ span.input-group-addon i {
   font-size: 11px;
   text-align: center;
 }
-/*.panel-body {
-background:   #D3D3D3;*/
+.panel-body {
+background:   #D3D3D3;
 }
-#map {
+/*#map {
   
   position: absolute; 
   top: 50px; 
@@ -387,3 +387,4 @@ background:   #D3D3D3;*/
   right: 200px; 
   z-index: 0;
 }
+*/

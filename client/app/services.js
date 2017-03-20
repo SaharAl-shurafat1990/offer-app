@@ -65,6 +65,8 @@ angular.module('offers.services', [])
       url : '/api/offers/addoffer',
       data : offer
     }).then(function (resp) {
+      console.log(offer)
+      console.log(resp.data)
       return resp.data
     })
   }
@@ -111,7 +113,7 @@ angular.module('offers.services', [])
         // Array of locations obtained from API calls
         var locations = [];
 
-        // Selected Location (initialize to center of America)
+        // Selected Location (initialize to center of jordan)
         var selectedLat = 30.5852;
         var selectedLong = 36.2384;
 
