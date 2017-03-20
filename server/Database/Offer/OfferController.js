@@ -12,19 +12,21 @@ module.exports.handleOffers={
   },
 
   addOffer:function(req,res){
+
     
     var location=req.body.location;
     var description=req.body.description;
     var date=req.body.date;
     var img=req.body.img;
     var id=req.body.userId;
+    console.log(id)
      
     Offer.create({
     location:location,
     description:description,
     date:date,
     img:img,
-    c_id:id,
+    c_id:id
 
     },function(err,ok){
       if(err){

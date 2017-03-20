@@ -65,6 +65,7 @@ $rootScope.$on("clicked", function(){
              description: $scope.data.description,
               date: $scope.data.date,
               img:$scope.data.img,
+              userId:$scope.data.userId,
             location: [$scope.data.longitude, $scope.data.latitude],
             htmlverified: $scope.data.htmlverified
         };
@@ -76,6 +77,7 @@ $rootScope.$on("clicked", function(){
   Offer.insert(userData)
   $location.path('/profile')
     .then(function (offer) {
+      console.log(offer)
 
       })
       .catch(function (error) {
