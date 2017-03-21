@@ -4,6 +4,7 @@ angular.module('offers', [
   'app.main',
   'offers.authCom',
   'addOffer',
+  'showOffer',
   'geolocation',
   'app.profile',
   'ngRoute'
@@ -30,7 +31,7 @@ angular.module('offers', [
     })
     .when('/showOffer', {
       templateUrl: 'app/account/showOffer/showOffer.html',
-      controller: 'addOfferContr'
+      controller: 'showfferContr'
     })
     .when('/verification', {
       templateUrl: 'app/account/verification/verification.html',
