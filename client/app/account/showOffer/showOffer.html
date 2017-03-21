@@ -15,20 +15,18 @@
                         <p> {{offer.description}} </p>
                         <p>{{offer.date}}</p>
                          <md-button  ng-controller='commentsController' ng-click="showPrerenderedDialogComment($event,offer)" class="md-primary md-raised" > show or write comments </md-button >
-                        <div style="visibility: hidden" ng-contoller = 'commentsController' >
-             <div class="md-dialog-container" id="comments">
-               <md-dialog layout-padding >
-
-           <div ng-controller='commentsController' >
-           <h1>Your feedBack</h1>
-               <p ng-repeat='comment in com'>{{comment.text}} </p>
-             </div>
-               <input type="text" name="comment" id='Text1' ng-model='commentValue'>
-              <md-button  ng-controller='commentsController' ng-click="addComment(commentValue)"  class="md-primary md-raised" > Write a comment </md-button >
-
-               </md-dialog>
-             </div>
-           </div>
+                           <div style="visibility: hidden" ng-contoller = 'commentsController' >
+                             <div class="md-dialog-container" id="comments">
+                                <md-dialog layout-padding >
+                                      <div ng-controller='commentsController' >
+                                      <h1>Your feedBack</h1>
+                                    <p ng-repeat='comment in com'>{{comment.text}} </p>
+                                  </div>
+                                <input type="text" name="comment" id='Text1' ng-model='commentValue'>
+                                <md-button  ng-controller='commentsController' ng-click="addComment(commentValue)"  class="md-primary md-raised" > Write a comment </md-button >
+                              </md-dialog>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>

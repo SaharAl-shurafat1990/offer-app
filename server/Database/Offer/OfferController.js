@@ -12,8 +12,7 @@ module.exports.handleOffers={
   },
 
   addOffer:function(req,res){
-    // console.log(req.body)
-    var companyName = req.body.companyName
+
     var location=req.body.location;
     var description=req.body.description;
     var date=req.body.date;
@@ -21,7 +20,6 @@ module.exports.handleOffers={
     var id=req.body.userId;
 
     Offer.create({
-    companyName:companyName,
     location:location,
     description:description,
     date:date,
