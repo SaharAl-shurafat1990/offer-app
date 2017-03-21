@@ -2,6 +2,9 @@ var mongoose = require('mongoose')
 
 
 var OfferSchema = new mongoose.Schema({
+    companyName:{
+      type:String
+    },
     description:{
       type: String,
       required: true

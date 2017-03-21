@@ -12,19 +12,21 @@ module.exports.handleOffers={
   },
 
   addOffer:function(req,res){
-    
+    // console.log(req.body)
+    var companyName = req.body.companyName
     var location=req.body.location;
     var description=req.body.description;
     var date=req.body.date;
     var img=req.body.img;
     var id=req.body.userId;
-     
+
     Offer.create({
+    companyName:companyName,
     location:location,
     description:description,
     date:date,
     img:img,
-    c_id:id,
+    c_id:id
 
     },function(err,ok){
       if(err){
@@ -37,10 +39,10 @@ module.exports.handleOffers={
 
     })
   },
-  
+
 deleteOffer:function(req,res){
   var id=req.body.id;
-  console.log(id);
+  // console.log(id);
     Offer.remove({_id:id},function(err,ok){
     if(err){
       res.json(err)
@@ -51,4 +53,3 @@ deleteOffer:function(req,res){
   })
 }
 }
-

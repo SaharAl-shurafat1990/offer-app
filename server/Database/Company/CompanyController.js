@@ -96,7 +96,7 @@ module.exports.handleUsers = {
         // console.log(code)
     //  console.log(code)
         if (!code) {
-
+          alert("re entar the code")
           res.status(404).json("code not found")
         } else {
         res.json({code : code});

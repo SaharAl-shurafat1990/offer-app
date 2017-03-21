@@ -25,7 +25,6 @@
   Offer.insert($scope.data)
   $location.path('/profile')
     .then(function (offer) {
-
       })
       .catch(function (error) {
       });

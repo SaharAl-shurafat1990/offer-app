@@ -2,6 +2,7 @@ angular.module('offers', [
   'offers.verification',
   'offers.services',
   'offers.authCom',
+  'offers.comments',
   'addOffer',
   'app.profile',
   'ngRoute'
