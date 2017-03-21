@@ -3,6 +3,7 @@ angular.module('offers', [
   'offers.services',
   'app.main',
   'offers.authCom',
+  'offers.comments',
   'addOffer',
   'showOffer',
   'geolocation',
