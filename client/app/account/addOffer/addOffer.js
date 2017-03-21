@@ -86,17 +86,17 @@ $rootScope.$on("clicked", function(){
       }, 1000);
 
   }
-  $scope.all={};
-  $scope.getAllOffers = function(){
-    Offer.getAll()
-    .then(function (data) {
+  // $scope.all={};
+  // $scope.getAllOffers = function(){
+  //   Offer.getAll()
+  //   .then(function (data) {
 
-     return $scope.all = data;
+  //    return $scope.all = data;
 
-    })
-    .catch(function (error) {
-        console.log(error);
-      });
-  }
+  //   })
+  //   .catch(function (error) {
+  //       console.log(error);
+  //     });
+  // }
 
 });
