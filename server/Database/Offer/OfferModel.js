@@ -6,7 +6,7 @@ var OfferSchema = new mongoose.Schema({
       type: String,
       required: true
     },
-    // location:{
+    // loc:{
     //   type:String,
     //   required: true
     // },
@@ -17,6 +17,11 @@ var OfferSchema = new mongoose.Schema({
     },
     c_id:String,
      img:String,
+
+     create_date:{
+        type: Date,
+        default: Date.now
+    },
 
     location: {
     type: [Number],

@@ -10,11 +10,13 @@
                   <div class="box-masonry"><a href="" title="" class="box-masonry-image with-hover-overlay with-hover-icon">
                     <img src="{{offer.img}}" alt="" class="img-responsive"></a>
                     <div class="box-masonry-text">
-                      <h4> <a href="">{{offer.location}}</a></h4>
+                      <h4> <a href="">{{offer.date}}</a></h4>
                       <div class="box-masonry-desription">
                         <p> {{offer.description}} </p>
-                        <p>{{offer.date}}</p>
-
+                        <!--  <div><strong>{{o}}</strong></div> -->
+        <!--  <div><h3 class="text-primary"> {{offer.remainingTime|durationview}}</h3></div>
+ -->
+<h3 style="color: black"><timer countdown="offer.create_date" max-time-unit="'day'" interval="1000">{{ddays}} day{{dayS}}, {{hhours}} hour{{hhoursS}}, {{mminutes}} minute{{minutesS}}, {{sseconds}} second{{secondsS}}</timer></h3>
                       </div>
                     </div>
                   </div>
