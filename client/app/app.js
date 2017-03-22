@@ -43,10 +43,15 @@ angular.module('offers', [
       templateUrl:'app/account/profile/profile.html',
       controller:'ProfileController'
       })
+    .when('/map', {
+      templateUrl: 'app/account/main/main.html',
+      controller: 'addOfferContr'
+    })
     .when('/', {
       templateUrl: 'app/account/showOffer/showOffer.html',
       controller: 'showfferContr'
     })
+    
     
     .otherwise({redirectTo:'/'})
     })

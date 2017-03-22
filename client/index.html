@@ -26,7 +26,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
           <li><a href="#/profile" class="profilee">Profile</a></li></li>
-          <li><a href="/#/"> About us</a></li>
+          <li><a href="/#/map"> Offers Map</a></li>
           <li><a href="#/signin" class="sign" style="display: none;">Sign in </a></li>
           <li><a href="#/signup" class="sign" style="display: none;">Sign up </a></li>
           <li><a href="#/signout" class="signout" style="color: red;">Sign Out</a></li>
@@ -46,107 +46,12 @@
 <h3>Here you will find great offers in your area!</h3>
 </div>
 
-<!--     <div class="container header inner">
-      <nav class="navbar">
-        <div class="container">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#/showOffer">City Offers</a>
-          </div>
-          <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav navbar-right masthead-nav">
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="navColor">Offers <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Restaurants</a></li>
-                  <li><a href="#">Clothes</a></li>
-                  <li><a href="#">Electronics</a></li>
-                </ul>
-              </li>
-              <li><a href="#/profile" class="profilee">Profile</a></li></li>
-              <li><a href="#"> About us</a></li>
-
-
-              <li> <form class="navbar-form navbar-left" ng-controller="addOfferContr" >
-                <div class="form-group" >
-                  <input type="text" class="form-control" placeholder="Search" ng-model="searchBox">
-                </div>
-                <button type="submit" class="btn btn-default">Search</button>
-              </form></li>
-            </ul>
-          </div>
-        </div>
-
-      </nav>
-    </div>
-  <div id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-   
-    <a href="#/signin" class="sign" style="display: none;">Sign in </a>
-    <a href="#/signup" class="sign" style="display: none;">Sign up </a>
-    <a href="#/signout" class="signout" style="color: red;">Sign Out</a>
-  </div> -->
-
-
-
-<!--   <span style="font-size:30px;cursor:pointer;float:right;color:#fff;position:absolute;top:5%;right: 10px;" onclick="openNav()">☰</span> -->
-
 <ng-view></ng-view>
-
 
 <div class="row" style="background: #333333; border-top: 3px solid black; padding: 20px; color: #f5f5f5; margin-top: 20px;">
 <h4 style="border : 0px;">All rights reserved (c) 2017 <br> RBK Students</h4>
 </div>
-
-
-
-
-
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
-
-
-<!-- <script type="text/javascript">
-  /* Side slide menu */
-  function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-  }
-
-  function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-  }
-  /* tab slider */
-  $(document).ready( function() {
-    $('#myCarousel').carousel({
-
-      interval:   4000
-    });
-
-    var clickEvent = false;
-    $('#myCarousel').on('click', '.nav a', function() {
-      clickEvent = true;
-      $('.nav li').removeClass('active');
-      $(this).parent().addClass('active');
-    }).on('slid.bs.carousel', function(e) {
-      if(!clickEvent) {
-        var count = $('.nav').children().length -1;
-        var current = $('.nav li.active');
-        current.removeClass('active').next().addClass('active');
-        var id = parseInt(current.data('slide-to'));
-        if(count == id) {
-          $('.nav li').first().addClass('active');
-        }
-      }
-      clickEvent = false;
-    });
-  });
-</script> -->
-
-
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
 <script src="bower_components/angularjs-geolocation/dist/angularjs-geolocation.min.js"></script>
@@ -160,8 +65,6 @@
 <script src="bower_components/humanize-duration/humanize-duration.js"></script>
 <script src="bower_components/angular-timer/dist/angular-timer.js"></script>
 
-
-
 <script src="app/account/main/main.js"></script>
 <script src="app/account/addOffer/addOffer.js"></script>
 <script src="app/account/showOffer/showOffer.js"></script>
@@ -174,19 +77,15 @@
 </body>
 </html>
 <script type="text/javascript">
-if(localStorage.getItem('user.offer')){
+  if(localStorage.getItem('user.offer')){
     $('.profilee').show();
     $('.signout').css("color", "red");
     $('.signout').show();
     $('.sign').hide();
-
   }else {
     $('.profilee').hide();
     $('.signout').css("color", "white");
     $('.signout').hide();
     $('.sign').show();
   }
-
-
-
 </script>
