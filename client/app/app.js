@@ -44,8 +44,8 @@ angular.module('offers', [
       controller:'ProfileController'
       })
     .when('/', {
-      templateUrl: 'app/account/main/main.html',
-      controller: 'MainController'
+      templateUrl: 'app/account/showOffer/showOffer.html',
+      controller: 'showfferContr'
     })
     
     .otherwise({redirectTo:'/'})

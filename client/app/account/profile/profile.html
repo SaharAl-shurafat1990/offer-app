@@ -1,4 +1,4 @@
-<div class="panel panel-default" style="background-color: grey" ng-init="getProfile()">
+<!-- <div class="panel panel-default" style="background-color: grey" ng-init="getProfile()">
 <h1 style="color:black">Your Offers</h1>
  <button class="btn btn-info btn-lg"><a href="#/addOffer">add New Offer</a></button>
  <div class="panel panel-danger">
@@ -24,7 +24,32 @@
 </div>
 </div>
 </div>
+</div> -->
+
+<div class="row" ng-init="getProfile()">
+<div class="col-xs-12">
+<div class="page-header">
+  <h1>Your Offers </h1>
 </div>
 
-      
+  <div class="col-md-4 col-xs-12" ng-repeat="offer in profile">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Offer</h3>
+      </div>
+        <ul class="list-group text-center">
+          <li class="list-group-item"><img src="{{offer.img}}" alt="" class="img-responsive"></li>
+          <li class="list-group-item">{{offer.description}}</li>
+          <li class="list-group-item">{{offer.date}}</li>
+          <li class="list-group-item">
+            <h5 style="color: #a41f4c"><timer countdown="offer.create_date" max-time-unit="'day'" interval="1000">{{ddays}} day{{dayS}}, {{hhours}} hour{{hhoursS}}, {{mminutes}} minute{{minutesS}}, {{sseconds}} second{{secondsS}}</timer></h5>
+          </li>
+          <li class="list-group-item">
+          <p><input type="submit" class="btn btn-danger" role="button"  value="Delete"  ng-click="Confirmdelete(offer._id)"></p>
+          </li>
+        </ul>  
+    </div>
+  </div>
+  </div>
+</div>
 
