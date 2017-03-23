@@ -77,8 +77,6 @@ $rootScope.$on("clicked", function(){
   Offer.insert(userData)
   $location.path('/profile')
     .then(function (offer) {
-      console.log(offer)
-
       })
       .catch(function (error) {
       });
@@ -86,17 +84,17 @@ $rootScope.$on("clicked", function(){
       }, 1000);
 
   }
-  $scope.all={};
-  $scope.getAllOffers = function(){
-    Offer.getAll()
-    .then(function (data) {
+  // $scope.all={};
+  // $scope.getAllOffers = function(){
+  //   Offer.getAll()
+  //   .then(function (data) {
 
-     return $scope.all = data;
+  //    return $scope.all = data;
 
-    })
-    .catch(function (error) {
-        console.log(error);
-      });
-  }
+  //   })
+  //   .catch(function (error) {
+  //       console.log(error);
+  //     });
+  // }
 
 });

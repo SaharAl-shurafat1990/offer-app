@@ -35,4 +35,25 @@ describe('Routing', function () {
     expect($route.routes['/signinCom'].controller).to.equal('comAuthController');
     expect($route.routes['/signinCom'].templateUrl).to.equal('app/account/signinCom.html');
   });
+  it('Should have /addOffer route, template, and controller', function () {
+    expect($route.routes['/addOffer']).to.be.defined;
+    expect($route.routes['/addOffer'].controller).to.equal('addOfferContr');
+    expect($route.routes['/addOffer'].templateUrl).to.equal('app/account/addOffer/addOffer.html');
+  });
+  it('Should have /showOffer route, template, and controller', function () {
+    expect($route.routes['/showOffer']).to.be.defined;
+    expect($route.routes['/showOffer'].controller).to.equal('addOfferContr');
+    expect($route.routes['/showOffer'].templateUrl).to.equal('app/account/showOffer/showOffer.html');
+  });
+  it('Should have /verification route, template, and controller', function () {
+    expect($route.routes['/verification']).to.be.defined;
+    expect($route.routes['/verification'].controller).to.equal('verificationController');
+    expect($route.routes['/verification'].templateUrl).to.equal('app/account/verification/verification.html');
+  });
+  it('Should have /profile route, template, and controller', function () {
+    expect($route.routes['/profile']).to.be.defined;
+    expect($route.routes['/profile'].controller).to.equal('ProfileController');
+    expect($route.routes['/profile'].templateUrl).to.equal('app/account/profile/profile.html');
+  });
+
 });

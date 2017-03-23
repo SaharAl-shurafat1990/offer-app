@@ -1,54 +1,67 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 100%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="map"></div>
-    <script>
-      var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 2,
-          center: new google.maps.LatLng(2.8,-187.3),
-          mapTypeId: 'terrain'
-        });
 
-        // Create a <script> tag and set the USGS URL as the source.
-        var script = document.createElement('script');
-        // This example uses a local copy of the GeoJSON stored at
-        // http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp
-        script.src = 'https://developers.google.com/maps/documentation/javascript/examples/json/earthquake_GeoJSONP.js';
-        document.getElementsByTagName('head')[0].appendChild(script);
-      }
+angular.module('showOffer',[])
 
-      // Loop through the results array and place a marker for each
-      // set of coordinates.
-      window.eqfeed_callback = function(results) {
-        for (var i = 0; i < results.features.length; i++) {
-          var coords = results.features[i].geometry.coordinates;
-          var latLng = new google.maps.LatLng(coords[1],coords[0]);
-          var marker = new google.maps.Marker({
-            position: latLng,
-            map: map
-          });
-        }
+.controller('showfferContr',function ($scope,Offer,$location,$timeout,datetime, moment){
+  $scope.all={};
+  $scope.getAllOffers = function(){
+    var today = moment();
+    Offer.getAll()
+    .then(function (data) {
+      data = data.map((elem) => {
+        var date = moment(elem.create_date);
+        date = date.add(7,'d');
+        elem.create_date = date.diff(today).valueOf() / 1000;
+        return elem;
+      });
+     return $scope.all = data;
+
+    })
+    .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+    // var tick = function () {
+    //     $scope.currentTime = moment();
+    //     processAuctionItems($scope.all);
+    //     $timeout(tick, 1000);
+    // }
+    // var processAuctionItems = function (data) {
+    //     angular.forEach(data, function (item) {
+    //         item.remainingTime = datetime.getRemainigTime(item.AuctionEndDateTime);
+    //     });
+    // }
+    // $scope.currentTime = moment();
+    // // getAuctionItems();
+    // $timeout(tick, 1000);
+    // // $timeout(getAuctionItems, 10000);
+    $scope.showCount = function(){
+      var _second = 1000;
+      var _minute = _second * 60;
+      var _hour = _minute * 60;
+      var _day = _hour * 24;
+
+      function showRemaining() {
+          var now = new Date();
+          var distance = Date.parse($scope.all.create_date) - Date.parse(now);
+          if (distance < 0) {
+              clearInterval($scope.timer);
+              $scope.countdown = 'EXPIRED!';
+              $scope.showCount = false;
+              return;
+          }
+          else{
+            $scope.showCount = true;
+            var days = Math.floor(distance / _day);
+            var hours = Math.floor((distance % _day) / _hour);
+            var minutes = Math.floor((distance % _hour) / _minute);
+            var seconds = Math.floor((distance % _minute) / _second);
+            $scope.days = days;
+            $scope.hours = hours;
+            $scope.minutes = minutes;
+            $scope.seconds = seconds;
+          }
       }
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQZ03HmPy40TR98CfH1dSGh8hj3-V7Lac&callback=initMap">
-    </script>
-  </body>
-</html>
+      $scope.timer = $interval(showRemaining, 1000);    
+  }
+})

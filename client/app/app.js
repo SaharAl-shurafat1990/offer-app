@@ -3,9 +3,13 @@ angular.module('offers', [
   'offers.services',
   'app.main',
   'offers.authCom',
+  'offers.comments',
   'addOffer',
+  'showOffer',
   'geolocation',
   'app.profile',
+  'angularMoment',
+  'timer',
   'ngRoute'
 ])
 
@@ -30,7 +34,7 @@ angular.module('offers', [
     })
     .when('/showOffer', {
       templateUrl: 'app/account/showOffer/showOffer.html',
-      controller: 'addOfferContr'
+      controller: 'showfferContr'
     })
     .when('/verification', {
       templateUrl: 'app/account/verification/verification.html',
@@ -40,10 +44,15 @@ angular.module('offers', [
       templateUrl:'app/account/profile/profile.html',
       controller:'ProfileController'
       })
-    .when('/', {
+    .when('/map', {
       templateUrl: 'app/account/main/main.html',
-      controller: 'MainController'
+      controller: 'addOfferContr'
     })
+    .when('/', {
+      templateUrl: 'app/account/showOffer/showOffer.html',
+      controller: 'showfferContr'
+    })
+    
     
     .otherwise({redirectTo:'/'})
     })

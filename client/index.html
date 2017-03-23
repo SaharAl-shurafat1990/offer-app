@@ -6,129 +6,89 @@
 	<link rel="stylesheet" type="text/css" href="styles/style.css"/>
 
 </head>
-<body class="m" ng-app="offers">
-	<header>
-    <div class="container header inner">
-      <nav class="navbar">
-        <div class="container">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#/showOffer">City Offers</a>
-          </div>
-          <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav navbar-right masthead-nav">
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="navColor">Offers <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Restaurants</a></li>
-                  <li><a href="#">Clothes</a></li>
-                  <li><a href="#">Electronics</a></li>
-                </ul>
-              </li>
-              <li><a href="#/profile" class="profilee">Profile</a></li></li>
-              <li><a href="#"> About us</a></li>
+<body ng-app="offers">
 
-
-              <li> <form class="navbar-form navbar-left" ng-controller="addOfferContr" >
-                <div class="form-group" >
-                  <input type="text" class="form-control" placeholder="Search" ng-model="searchBox">
-                </div>
-                <button type="submit" class="btn btn-default">Search</button>
-              </form></li>
-            </ul>
-          </div>
-        </div>
-        <div  ng-view></div>
-      </nav>
+<div class="container-fluid">
+<nav class="navbar navbar-default" style="top: 20px; position: absolute; width: 97%">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/#/">City Offers</a>
     </div>
-  </header>
-  <div id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-    <a href="#/signin" class="sign" style="display: none;">Sign in </a>
-    <a href="#/signup" class="sign" style="display: none;">Sign up </a>
-    <a href="#/signout" class="signout" style="color: red;">Sign Out</a>
-  </div>
 
-  <span style="font-size:30px;cursor:pointer;float:right;color:#fff;position:absolute;top:5%;right: 10px;" onclick="openNav()">☰</span>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+          <li><a href="#/profile" class="profilee">Profile</a></li></li>
+          <li><a href="/#/map"> Offers Map</a></li>
+          <li><a href="#/signin" class="sign" style="display: none;">Sign in </a></li>
+          <li><a href="#/signup" class="sign" style="display: none;">Sign up </a></li>
+          <li><a href="#/signout" class="signout" style="color: red;">Sign Out</a></li>
 
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
 
+<div class="row text-center" style="background-image: url(images/bg.png);
+    padding: 100px 50px;
+    background-size: cover;
+    color: #fff;
+    text-shadow: 1px 1px 8px #515151;
+    margin-bottom: 30px">
+<h1>Welcome to City Offers!</h1>
+<h3>Here you will find great offers in your area!</h3>
 </div>
-<script type="text/javascript">
-  /* Side slide menu */
-  function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-  }
 
-  function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-  }
-  /* tab slider */
-  $(document).ready( function() {
-    $('#myCarousel').carousel({
+<ng-view></ng-view>
 
-      interval:   4000
-    });
+<div class="row" style="background: #333333; border-top: 3px solid black; padding: 20px; color: #f5f5f5; margin-top: 20px;">
+<h4 style="border : 0px;">All rights reserved (c) 2017 <br> RBK Students</h4>
+</div>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
 
-    var clickEvent = false;
-    $('#myCarousel').on('click', '.nav a', function() {
-      clickEvent = true;
-      $('.nav li').removeClass('active');
-      $(this).parent().addClass('active');
-    }).on('slid.bs.carousel', function(e) {
-      if(!clickEvent) {
-        var count = $('.nav').children().length -1;
-        var current = $('.nav li.active');
-        current.removeClass('active').next().addClass('active');
-        var id = parseInt(current.data('slide-to'));
-        if(count == id) {
-          $('.nav li').first().addClass('active');
-        }
-      }
-      clickEvent = false;
-    });
-  });
-</script>
-
-
-
-<script src="app/lib/jquery.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
 <script src="bower_components/angularjs-geolocation/dist/angularjs-geolocation.min.js"></script>
 <script src="bower_components/holderjs/holder.js"></script>
+<script src="bower_components/moment/moment.js"></script>
+<script src="bower_components/angular-moment/angular-moment.js"></script>
 <script src="bower_components/modernizr/bin/modernizr"></script>
 <script src="styles/bootstrap/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
 <script src="app/account/companyAuth/authCom.js"></script>
+<<<<<<< HEAD
+=======
+<script src="bower_components/humanize-duration/humanize-duration.js"></script>
+<script src="bower_components/angular-timer/dist/angular-timer.js"></script>
+
+>>>>>>> 818bd2b9a620e7c740b98ce1679ad6eb5230d82d
 <script src="app/account/main/main.js"></script>
 <script src="app/account/addOffer/addOffer.js"></script>
+<script src="app/account/showOffer/showOffer.js"></script>
 <script src="app/account/profile/profile.js"></script>
 <script src="app/account/verification/verification.js"></script>
 <script src="app/services.js"></script>
 <script src="app/app.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQZ03HmPy40TR98CfH1dSGh8hj3-V7Lac"></script>
 
-
-
 </body>
 </html>
 <script type="text/javascript">
-if(localStorage.getItem('user.offer')){
+  if(localStorage.getItem('user.offer')){
     $('.profilee').show();
     $('.signout').css("color", "red");
     $('.signout').show();
     $('.sign').hide();
-
   }else {
     $('.profilee').hide();
     $('.signout').css("color", "white");
     $('.signout').hide();
     $('.sign').show();
   }
-
-
-
 </script>
