@@ -77,8 +77,6 @@ $rootScope.$on("clicked", function(){
   Offer.insert(userData)
   $location.path('/profile')
     .then(function (offer) {
-      console.log(offer)
-
       })
       .catch(function (error) {
       });

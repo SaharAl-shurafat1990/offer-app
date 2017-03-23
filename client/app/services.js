@@ -58,6 +58,35 @@ angular.module('offers.services', [])
     checkcode:checkcode
   };
 })
+.factory('Comments',function ($http, $location, $window) {
+  var insert = function (Comment) {
+  var newComment = {text:Comment,
+    offerId:window.localStorage._id}
+    return $http({
+      method : 'POST',
+      url : '/api/insertC',
+      data : newComment
+    }).then(function (resp) {
+      return resp.data
+    })
+  }
+
+  var getAll = function (id) {
+    // var id = window.localStorage._id
+    return $http({
+      method : 'POST',
+      url : '/api/allC/' + id
+    }).then(function (resp) {
+      return resp.data
+    })
+  }
+
+  return {
+    insert : insert,
+    getAll : getAll
+  }
+})
+
 .factory('Offer',function ($http, $location) {
 
   var insert = function (offer) {
